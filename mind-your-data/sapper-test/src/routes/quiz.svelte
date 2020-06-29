@@ -7,12 +7,7 @@
 Only for educational purpose, this test will utilize blah blah blah. 
 There will be no personal data collected or shared... 
 This test will only  blah blah blah and utilize blah blah blah. 
-There will be no data... 
-This test will only do blah blah blah and utilize blah blah blah. 
-There will be no data... 
-This test will only do blah blah blah and utilize blah blah blah. 
-There will be no data... 
-</p>
+<h2>this should get converted into a modal</h2>
 <button>
     <a rel=prefetch href='.'>cancel</a>
     </button>

@@ -4,26 +4,33 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #3e4b59;
+		/*border-bottom: 1px solid rgba(255,62,0,0.1);*/
 		font-weight: 300;
 		padding: 0 1em;
 	}
-
 	ul {
+		display: flex;
+		list-style: none;
+		justify-content: flex-end;
 		margin: 0;
 		padding: 0;
+		color: #c7c7c7;
 	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
+	img {
+		/*display: block;
+		float: left;*/
+		display: flex;
+		justify-content: flex-start;
+		height: 40px;
 	}
-
-	li {
-		display: block;
-		float: left;
+	li{
+		display: flex;
+		margin: 0px 20px 0px 20px;
 	}
 
 	[aria-current] {
@@ -36,20 +43,22 @@
 		content: '';
 		width: calc(100% - 1em);
 		height: 2px;
-		background-color: rgb(255,62,0);
+		background-color:#e74e45;
 		display: block;
-		bottom: -1px;
+		/*bottom: -1px;*/
 	}
-
 	a {
-		text-decoration: none;
+		display: flex;
 		padding: 1em 0.5em;
-		display: block;
+		text-decoration: none;
+		margin: 2em, 0em;
+
 	}
 </style>
 
 <nav>
-	<ul>
+	<img  src='./MYDlogo_small.png' alt="Mind your Data logo">
+	<ul id="navigation">
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
 		<li><a aria-current="{segment === 'quiz' ? 'page' : undefined}" href="quiz">quiz</a></li>
 		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
