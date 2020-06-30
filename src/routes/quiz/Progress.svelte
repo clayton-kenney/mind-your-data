@@ -1,5 +1,18 @@
 <script>
 let completed;
+//pass to events to quiz components
+import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+    $: num = 0;
+	function sayHello() {
+        num++;
+		dispatch('message', {
+			number: num
+		});
+	}
+
+
+
 
 //total time for countdown
 import { tweened } from 'svelte/motion';
@@ -78,7 +91,7 @@ let timer = tweened(start);
         </slot>
     </section>
     <section id='next-skip'> 
-        <button  class='btn-dark'>Next</button>
+        <button on:click={sayHello} class='btn-dark'>Next</button>
         <button  class='btn-dark'>Skip</button>
         <!--<button on:click={handleClickMinus}>Skip</button>-->
     </section>

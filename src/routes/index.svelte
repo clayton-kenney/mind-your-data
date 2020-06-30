@@ -107,7 +107,7 @@
 	<h1>Mind Your Data</h1>
 	<p >We believe that everyone in this world should be the only owner of our data.<br>
 		But most of us blah blah blah </p>
-	<button><a rel=prefetch href="quiz">Start the lesson</a></button>
+	<button><a rel=prefetch href="/quiz">Start the lesson</a></button>
 </div>
 <ul>
 	<li class='about'>
