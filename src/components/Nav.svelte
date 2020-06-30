@@ -58,7 +58,7 @@
 </style>
 
 <nav>
-	<img  src='./MYDlogo_small.png' alt="Mind your Data logo">
+	<a href='/home'><img  src='./MYDlogo_small.png' alt="Mind your Data logo"></a>
 	<ul id="navigation">
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
 		<li><a aria-current="{segment === 'quiz' ? 'page' : undefined}" href="quiz">quiz</a></li>

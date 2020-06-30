@@ -1,5 +1,6 @@
 <script>
 import Progress from './Progress.svelte'
+import { onMount } from 'svelte';
 	let q1Steps = [
 	{ stepNum: '1', 
 	h2: 'Webcam Challenge', 
@@ -25,6 +26,20 @@ import Progress from './Progress.svelte'
 		
 	$: headline = q1Steps[q].h2;
 	$: body = q1Steps[q].copy;
+	let video
+	onMount(() => {
+	video = document.querySelector("#videoElement");
+	
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+})
 </script>
 <svelte:head>
 	<title>Webcam Challenge</title>
@@ -40,6 +55,9 @@ import Progress from './Progress.svelte'
 		{/each}
 		</ul>
 	</Progress>
+	<video autoplay="true" id="videoElement">
+	
+	</video>
 <style>
    .quiz-holder {
 	   width: 70%;
