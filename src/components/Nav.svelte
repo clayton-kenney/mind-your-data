@@ -31,6 +31,7 @@
 	li{
 		display: flex;
 		margin: 0px 20px 0px 20px;
+		text-transform: uppercase;
 	}
 
 	[aria-current] {

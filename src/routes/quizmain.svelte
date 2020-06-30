@@ -9,7 +9,6 @@
  import Quiz8 from './quiz/q7.svelte'
  import Quiz9 from './quiz/q8.svelte'
  import Quiz10 from './quiz/q9.svelte'
- import Progress from '../components/Progress.svelte'
 
  const quizSteps =  [
         { id:'1', component: Quiz1, name: 'Webcam Challenge', time: '2mins', description:"If your computer has a built-in camera, also known as a webcam, you should know that it can be used to spy on you. And no, this is not just science fiction as a recent survey conducted by HP shows that 10% in the U.S. either know someone whose webcam was hacked or have had their own webcam hacked. In this challenge, we are going to walk you through the best practice to avoid this risk."},
@@ -23,19 +22,17 @@
         { id: '9', component: Quiz9, name: 'Messenger platform', time: '2mins'},
         { id: '10', component: Quiz10, name: 'iot', time: '2mins'}
 ]
+//let selected = quizSteps[1];
+//let next = quizSteps[1];
 
-let selected = quizSteps[0];
-let next = quizSteps[0];
-function handleMessage(event) {
-                selected = quizSteps[(event.detail.number)];
-                next= quizSteps[(event.detail.number) + 1]
-        }
 //et selected= quizSteps[q];   
 </script>
 <svelte:head>
 	<title>Test your knowledge</title>
 </svelte:head>
-<svelte:component this={selected.component}/>
+<div>
+       <!-- <svelte:component this={quizSteps[1]}/>-->
+       <Quiz2 />
 
 <!--<select bind:value={selected}>
         {#each quizSteps as q}
@@ -44,7 +41,6 @@ function handleMessage(event) {
 </select>-->
 <!--<button on:click={handleClick}>Click me</button>-->
 <!--<Progress past={past.name} current={selected.name} next={next.name}/>-->
-<Progress current={selected.name} next={next.name} on:message={handleMessage} />
+</div>
 <style>
-
 </style>

@@ -1,7 +1,5 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-	import Progress from '../components/Progress.svelte'
-
 	export let segment;
 </script>
 

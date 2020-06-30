@@ -88,6 +88,10 @@
 		text-transform: uppercase;
 		text-align: left;
 	}
+	a {
+		text-decoration: none;
+		padding: 4px 30px;
+	}
 	@media (min-width: 480px) {
 		h1 {
 			font-size: 4em;
@@ -96,14 +100,14 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Mind Your Data: Aka Fuck surveillance capitalism</title>
 </svelte:head>
 
 <div class="hero">
 	<h1>Mind Your Data</h1>
 	<p >We believe that everyone in this world should be the only owner of our data.<br>
 		But most of us blah blah blah </p>
-	<button>Start the lesson</button>
+	<button><a rel=prefetch href="quiz">Start the lesson</a></button>
 </div>
 <ul>
 	<li class='about'>

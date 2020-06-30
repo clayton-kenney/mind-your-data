@@ -2,10 +2,10 @@
   "bundler": "rollup",
   "shimport": "1.0.1",
   "assets": {
-    "main": "client.1933660b.js"
+    "main": "client.7a560e2a.js"
   },
   "css": {
-    "main": "main.2163236213.css",
+    "main": "main.50400956.css",
     "chunks": {
       "index.svelte": [],
       "resources.svelte": [],
@@ -13,6 +13,7 @@
       "about.svelte": [],
       "blog/index.svelte": [],
       "blog/[slug].svelte": [],
+      "quiz/Progress.svelte": [],
       "quiz/q0.svelte": [],
       "quiz/q1.svelte": [],
       "quiz/q2.svelte": [],
