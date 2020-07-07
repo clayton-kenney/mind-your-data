@@ -27,7 +27,7 @@
         { id: '9', component: Quiz9, name: 'Messenger platform', complete:false},
         { id: '10', component: Quiz10, name: 'iot', time: '2mins'}
 ]
-$: quizNum = 2;
+$: quizNum = 1;
 function handleMessage(event) {
               quizNum++;
               //quizSteps[Object.values(event.detail[0])].complete = object.values(event.detail[1])
