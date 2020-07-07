@@ -5,7 +5,8 @@
 <style>
 	nav {
 		display: flex;
-		flex-flow: row wrap;
+		flex-flow: row nowrap;
+		height: 50px;
 		justify-content: space-between;
 		align-items: center;
 		background-color: #3e4b59;
@@ -26,7 +27,7 @@
 		float: left;*/
 		display: flex;
 		justify-content: flex-start;
-		height: 40px;
+		height: 30px;
 	}
 	li{
 		display: flex;

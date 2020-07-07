@@ -11,31 +11,18 @@ import { createEventDispatcher } from 'svelte';
 		});
 	}
 
-
-
-
-//total time for countdown
-import { tweened } from 'svelte/motion';
-let start= 30 * 60;
-let timer = tweened(start);
-  setInterval(() => {
-    if ($timer > 0) $timer--;
-  }, 1000);
-
-  $: minutes = Math.floor($timer / 60);
-  $: minname = minutes > 1 ? "mins" : "min";
-  $: seconds = Math.floor($timer - minutes * 60)
-
 </script>
 <style>
     aside {
-        position: fixed;
-        top:55px;
-        right:0;
-        width: 25%;
-        height: 100%;
-        background-color: #e4e4e4;
-        border: 2px solid #c7c7c7;
+       /* position: fixed; */
+        display: block;
+        top:50px;
+        left:0;
+        width: 27.77vw;
+        height: 100vh;
+        /*background-color: #e4e4e4;
+        border: 2px solid #c7c7c7;*/
+        padding-left: 50px;
     }
     section {
         padding: 10px 10px 20px 10px;
@@ -43,23 +30,23 @@ let timer = tweened(start);
     #timer {
         display: flex;
         flex-direction: column; 
-        border-bottom: 1px solid #c7c7c7;
-        margin-left: 15px;
+        /*border-bottom: 1px solid #c7c7c7;*/
     }
     #remaining {
         font-size: 20px;
         padding: 5px 0px 20px 0px;
-        margin-left: 15px;
+        
 
     }
     #minutes {
         color:white;
         background: #0F2033;
         border-radius: 6px;
-        width: 30%;
+        width: 9.7vw;
+        height: 6.7vh;
         text-align: center;
-        padding: 5px 10px;
-        margin-left: 15px;
+        font-size: 30px;
+        
 
     }
     .btn-dark {
@@ -81,18 +68,14 @@ let timer = tweened(start);
     
 </style>
 <aside id='sidebar'>
-    <section id="timer">
-        <span id='remaining'>Time remaining:</span> 
-        <span id='minutes'>{minutes}:{seconds}</span>
-    </section>
     <section id="progress">
         <slot>
 
         </slot>
     </section>
+    <!--
     <section id='next-skip'> 
         <button on:click={sayHello} class='btn-dark'>Next</button>
         <button  class='btn-dark'>Skip</button>
-        <!--<button on:click={handleClickMinus}>Skip</button>-->
-    </section>
+    </section> -->
 </aside>
