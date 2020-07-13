@@ -11,6 +11,8 @@
  import Quiz10 from './quiz/q9.svelte'
  import Completion from '../components/Completion.svelte'
  import { createEventDispatcher } from 'svelte';
+ 
+ import { quintOut } from 'svelte/easing';
 
 
 
@@ -29,6 +31,7 @@
 ]
 $: quizNum = 1;
 function handleMessage(event) {
+              
               quizNum++;
               //quizSteps[Object.values(event.detail[0])].complete = object.values(event.detail[1])
               let status = Object.values(event.detail);
@@ -43,9 +46,9 @@ function handleMessage(event) {
 </svelte:head>
 <main>
        <Completion class='step'/>
-        <svelte:component this={quizSteps[quizNum].component} on:message={handleMessage}/>
+       <section id="main-content">
+        <svelte:component this={quizSteps[quizNum].component} on:message={handleMessage} />
        <!--<Quiz2 on:message={handleMessage}/> -->
-
 <!--<select bind:value={selected}>
         {#each quizSteps as q}
 		<option value={q}>Question {q.id}</option>
@@ -53,6 +56,7 @@ function handleMessage(event) {
 </select>-->
 <!--<button on:click={handleClick}>Click me</button>-->
 <!--<Progress past={past.name} current={selected.name} next={next.name}/>-->
+       </section>
 </main>
 <style>
        main {
@@ -64,5 +68,11 @@ function handleMessage(event) {
        }
        .step{
 		margin-bottom: 55px;
+       }
+       #main-content{
+              margin-top: -50px;
+              margin-left: 21vw;
+              margin-right: 50px;
+              padding-right: 15px;
        }
 </style>

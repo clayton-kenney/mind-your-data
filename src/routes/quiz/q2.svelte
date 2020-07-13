@@ -1,10 +1,10 @@
 <script>
 	import { onMount, afterUpdate } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
-	import Completion from '../../components/Completion.svelte'
+	//import Completion from '../../components/Completion.svelte'
 	
 	const dispatch = createEventDispatcher();
-	
+
 	function complete() {
 		dispatch('message', {
 			question: 1,
@@ -54,9 +54,6 @@
 			}
 			if (q > 2) {
 				complete();
-				stream.getTracks().forEach(function(track) {
-  					track.stop();
-				});
 			}
 		}
 		$: headline = q1Steps[q].h2;
@@ -70,6 +67,7 @@
 		function showAlternatives(event) {
 			section=2;
 		}
+		
 	</script>
 	<svelte:head>
 		<title>Search Engine</title>
