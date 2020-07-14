@@ -1,6 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
+	import Trans from '../../components/TransHelp.svelte';
 
 	//confirm comletion of quiz to master quiz component
 	function complete() {
@@ -29,6 +30,7 @@
 <svelte:head>
 	<title>Internet of things( Alexa, Home devices)</title>
 </svelte:head>
+<Trans>
 {#if q==0}
 <section>
 	<h2>Internet of things( Alexa, Home devices)</h2> 
@@ -97,6 +99,7 @@
 			<button on:click={complete}>Next Challenge</button>
 	</section>
 {/if}
+</Trans>
 <style>
    .button-holder {
 	width: 27vw;

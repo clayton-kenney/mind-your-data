@@ -32,38 +32,30 @@ let timer = tweened(start);
 <section class='done'>
     <img src='./lock-active.svg' alt="completed" class='active lock' />
         <img src='./Ellipse-active.png' alt="completed" class='ellipse active' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' /> 
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' /> 
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
 
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
 
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-     <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
 
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
 
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
 
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
-        <img src='./Ellipse-inactive.png' alt="completed" class='ellipse inactive' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
+        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />        <img src='./Ellipse-active.png' alt="completed" class='ellipse inactive' />
 
-    <img src='./lock-inactive.svg' alt="completed" class='inactive lock' />
+    <img src='./lock-active.svg' alt="completed" class='inactive lock' />
 </section>
 <style>
     #timer {
@@ -108,10 +100,10 @@ let timer = tweened(start);
         margin: 3px;
     }
     .active {
-
+        opacity: 100%
     }
     .inactive {
-
+        opacity: 30%
     }
 </style>
 <!--

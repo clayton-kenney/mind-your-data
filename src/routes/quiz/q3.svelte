@@ -1,12 +1,19 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
+	import Trans from '../../components/TransHelp.svelte';
 
 	//confirm comletion of quiz to master quiz component
 	function complete() {
 		dispatch('message', {
-			question: 2, //Q-1 becaue of array
+			question: 2,
 			complete: 'true'
+		});
+	}
+	function incomplete() {
+		dispatch('message', {
+			question: 2, //Q-1 becaue of array
+			complete: 'false'
 		});
 	}
 	let q = 0;
@@ -18,6 +25,7 @@
 <svelte:head>
 	<title>Https Everywhere</title>
 </svelte:head>
+<Trans>
 {#if q==0}
 <section>
 	<h2>Https Everywhere</h2> 
@@ -35,10 +43,11 @@
 <div class="button-holder">
 	<button>Download extension now</button>
 	<button>Already Have it</button>
-	<button>Don't want to download it</button>
+	<button on:click={incomplete}>Don't want to download it</button>
 	<button on:click={complete}>Submit</button>
 </div>
 {/if}
+</Trans>
 <style>
    .button-holder {
 	width: 27vw;

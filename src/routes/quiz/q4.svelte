@@ -1,6 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
+	import Trans from '../../components/TransHelp.svelte';
 
 	//confirm comletion of quiz to master quiz component
 	function complete() {
@@ -28,6 +29,7 @@
 <svelte:head>
 	<title>Location Tracking</title>
 </svelte:head>
+<Trans>
 {#if q==0}
 <section>
 	<h2>Location Tracking</h2> 
@@ -81,6 +83,7 @@
 	</div>
 </section>
 {/if}
+</Trans>
 <style>
    .button-holder {
 	width: 27vw;

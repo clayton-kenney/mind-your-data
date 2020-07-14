@@ -2,13 +2,20 @@
 	import { onMount, afterUpdate } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
 	//import Completion from '../../components/Completion.svelte'
-	
+	import Trans from '../../components/TransHelp.svelte';
+
 	const dispatch = createEventDispatcher();
 
 	function complete() {
 		dispatch('message', {
-			question: 1,
+			question: 3,
 			complete: 'true'
+		});
+	}
+	function incomplete() {
+		dispatch('message', {
+			question: 3, //Q-1 becaue of array
+			complete: 'false'
 		});
 	}
 		let q1Steps = [
@@ -72,25 +79,41 @@
 	<svelte:head>
 		<title>Search Engine</title>
 	</svelte:head>
-	<section id="progress">
+<!-- <section id="progress">
 		<h3>Search Engine {fraction}</h3>
 		<ul>
 			{#each q1Steps as step}
 				<li class={step.classn} >{step.name}</li>
 			{/each}
 		</ul>
-	</section>
-	<div class='quiz-holder'>
-		{#if section==0}
+	</section> -->
+	
+	
+	<Trans>
+				{#if section==0}
 		<h1>{headline}</h1>
 		<p>{body}</p> 
 		<form>
-			{#each browserChoice as browsers, index}
 				<label>
-					<input type=radio bind:group={choice} value={index}>
-						{browsers.name}
+					<input type="radio" bind:group={choice} value={0} selected>
+						{browserChoice[0].name}
 				</label>
-			{/each}
+				<label>
+					<input type="radio" bind:group={choice} value={1}>
+						{browserChoice[1].name}
+				</label>
+				<label>
+					<input type="radio" bind:group={choice} value={2}>
+						{browserChoice[2].name}
+				</label>
+				<label>
+					<input type="radio" bind:group={choice} value={3}>
+						{browserChoice[3].name}
+				</label>
+				<label>
+					<input type="radio" bind:group={choice} value={4}>
+						{browserChoice[4].name}
+				</label>
 		</form>
 		<section id='next-skip'> 
 			<button on:click={showResults} class='btn-dark'>Submit</button>
@@ -103,8 +126,7 @@
 			<button class='btn-dark' on:click={showAlternatives}>Check Alternatives</button>
 		{:else}
 			<h1>Switch Search Engine</h1>
-			<h3>How to change your default browser for windows</h3> 
-			<h3>how to change your defualt browser for mac</h3> 
+			<h2>Here is a list of our recomended search engines</h2>
 			<ul>
 				<li>Option 1</li>
 				<li>Option 2</li>
@@ -112,11 +134,14 @@
 				<li>Option 4</li>
 				<li>Option 5</li>
 			</ul>
+			<h3>How to change your default browser for windows</h3> 
+			<h3>how to change your defualt browser for mac</h3> 
 			<button class='btn-dark' on:click={complete}>Complete Challenge</button>
+			<button class='btn-dark' on:click={incomplete}>Complete Challenge</button>
 
 		{/if}
 
-	</div>
+	</Trans>
 		
 		
 	<style>

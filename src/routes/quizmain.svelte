@@ -1,35 +1,38 @@
 <script>
- import Quiz1 from './quiz/q0.svelte'
- import Quiz2 from './quiz/q1.svelte'
- import Quiz3 from './quiz/q2.svelte'
- import Quiz4 from './quiz/q3.svelte'
- import Quiz5 from './quiz/q4.svelte'
- import Quiz6 from './quiz/q5.svelte'
- import Quiz7 from './quiz/q6.svelte'
- import Quiz8 from './quiz/q7.svelte'
- import Quiz9 from './quiz/q8.svelte'
- import Quiz10 from './quiz/q9.svelte'
+ import Quiz1 from './quiz/q1.svelte'
+ import Quiz2 from './quiz/q2.svelte'
+ import Quiz3 from './quiz/q3.svelte'
+ import Quiz4 from './quiz/q4.svelte'
+ import Quiz5 from './quiz/q5.svelte'
+ import Quiz6 from './quiz/q6.svelte'
+ import Quiz7 from './quiz/q7.svelte'
+ import Quiz8 from './quiz/q8.svelte'
+ import Quiz9 from './quiz/q9.svelte'
+ import Checkpoint1 from './quiz/check1.svelte'
+ import Checkpoint2 from './quiz/check2.svelte'
+ import Checkpoint3 from './quiz/check3.svelte'
  import Completion from '../components/Completion.svelte'
  import { createEventDispatcher } from 'svelte';
- 
- import { quintOut } from 'svelte/easing';
+import { slide } from 'svelte/transition';
+import { quintOut, quintIn } from 'svelte/easing';
 
 
 
 
  const quizSteps =  [
         { id:'1', component: Quiz1, name: 'Webcam Challenge', complete:false},
-        { id: '2', component: Quiz2, name: 'Browser Choice', complete:false},
-        { id: '3', component: Quiz3, name: 'Privacy Setting', complete:false},
-        { id: '4', component: Quiz4, name: 'Https everywhere', complete:false},
-        { id: '5', component: Quiz5, name: 'Location Services (phone needed)', complete:false},
+        { id: '2', component: Quiz3, name: 'Privacy Settings', complete:false},
+        { id: '3', component: Checkpoint1, name: 'Security vs Privacy', complete:false},
+        { id: '4', component: Quiz2, name: 'Search Engine', complete:false},
+        { id: '5', component: Quiz8, name: 'Privacy Settings', complete:false},
         { id: '6', component: Quiz6, name: 'Tracker blocker', complete:false},
-        { id: '7', component: Quiz7, name: 'location Tracking', complete:false},
-        { id: '8', component: Quiz8, name: 'Mobile keyboard', complete:false},
-        { id: '9', component: Quiz9, name: 'Messenger platform', complete:false},
-        { id: '10', component: Quiz10, name: 'iot', time: '2mins'}
+        { id: '7', component: Quiz5, name: 'DNS', complete:false},
+        { id: '8', component: Checkpoint2, name: 'Surveillance Capitalism', complete:false},
+        { id: '9', component: Quiz4, name: 'Location Tracking', complete:false},
+        { id: '10', component: Quiz7, name: 'iOT', complete:false},
+        { id: '11', component: Quiz9, name: 'How to Make change', complete:false},
 ]
-$: quizNum = 1;
+$: quizNum = 3;
 function handleMessage(event) {
               
               quizNum++;
@@ -44,7 +47,7 @@ function handleMessage(event) {
 <svelte:head>
 	<title>Test your knowledge</title>
 </svelte:head>
-<main>
+<main transition:slide="{{delay: 100, duration: 400, easing: quintOut}}">
        <Completion class='step'/>
        <section id="main-content">
         <svelte:component this={quizSteps[quizNum].component} on:message={handleMessage} />

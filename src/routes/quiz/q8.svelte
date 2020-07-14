@@ -3,8 +3,8 @@
 	const dispatch = createEventDispatcher();
 	import { onMount, afterUpdate } from 'svelte';
 	import Detect from '../../components/Detect.svelte'
+	import Trans from '../../components/TransHelp.svelte';
 
-	
 	//confirm comletion of quiz to master quiz component
 	function complete() {
 		dispatch('message', {
@@ -31,6 +31,7 @@
 <svelte:head>
 	<title>Question 4: Privacy Settings</title>
 </svelte:head>
+<Trans>
 {#if q==0}
 <section>
 	<h2>Privacy settings: Want a cookie?</h2> 
@@ -51,6 +52,7 @@
 	</div>
 </section>
 {/if}
+</Trans>
 <style>
    .button-holder {
 	width: 27vw;

@@ -1,6 +1,9 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import { onMount, afterUpdate, onDestroy } from 'svelte';
+    import Trans from '../../components/TransHelp.svelte';
+  
+
 
 	const dispatch = createEventDispatcher();
 
@@ -59,6 +62,7 @@
 <svelte:head>
 	<title>Webcam Challenge</title>
 </svelte:head>
+<Trans>
 {#if q==0}
 <section>
 	<h2>Is your Webcam Covered?</h2> 
@@ -82,6 +86,7 @@
 {:else}
     <video autoplay="true" id="videoElement"></video>
 {/if}
+</Trans>
 <style>
    .button-holder {
 	width: 27vw;
