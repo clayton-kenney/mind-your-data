@@ -67,7 +67,7 @@
 		$: body = q1Steps[q].copy;
 		$: fraction = q1Steps[q].d;
 	
-		let choice = ['Google Chrome'];
+		let choice = 0;
 		function showResults(event) {
 			section =1
 		}
@@ -136,9 +136,10 @@
 			</ul>
 			<h3>How to change your default browser for windows</h3> 
 			<h3>how to change your defualt browser for mac</h3> 
-			<button class='btn-dark' on:click={complete}>Complete Challenge</button>
-			<button class='btn-dark' on:click={incomplete}>Complete Challenge</button>
-
+		<div class="button-holder">
+			<button class='btn-dark' on:click={complete}>Yes, I did</button>
+			<button class='btn-dark' on:click={incomplete}>No, I didn't</button>
+		</div>
 		{/if}
 
 	</Trans>
@@ -201,5 +202,15 @@
 		}
 		label {
 			padding: 10px;
+		}
+		.button-holder {
+			width: 27vw;
+			display: flex;
+			flex-flow: column nowrap;
+		}button {
+			padding: 10px 20px;
+			margin: 10px;
+			border: black solid 0px;
+			border-radius: 8px;
 		}
 	</style>

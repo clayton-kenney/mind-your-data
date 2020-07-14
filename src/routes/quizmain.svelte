@@ -32,7 +32,7 @@ import { quintOut, quintIn } from 'svelte/easing';
         { id: '10', component: Quiz7, name: 'iOT', complete:false},
         { id: '11', component: Quiz9, name: 'How to Make change', complete:false},
 ]
-$: quizNum = 3;
+$: quizNum = 0;
 function handleMessage(event) {
               
               quizNum++;
