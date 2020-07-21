@@ -3,21 +3,17 @@
 	import { createEventDispatcher } from 'svelte';
 	//import Completion from '../../components/Completion.svelte'
 	import Trans from '../../components/TransHelp.svelte';
+	import Complete from '../../components/complete.svelte'
+
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+
+	onMount(async() => {$quizSteps[$count].status = 1});
+	
 
 	const dispatch = createEventDispatcher();
 
-	function complete() {
-		dispatch('message', {
-			question: 3,
-			complete: 'true'
-		});
-	}
-	function incomplete() {
-		dispatch('message', {
-			question: 3, //Q-1 becaue of array
-			complete: 'false'
-		});
-	}
 		let q1Steps = [
 		{ stepNum: '1', 
 		h2: 'What Search Engine do you use?', 
@@ -57,10 +53,10 @@
 			q++;
 			q1Steps[q].classn = 'complete';
 			if (q == 2 ){
-				isActive = true;
+				//isActive = true;
 			}
 			if (q > 2) {
-				complete();
+				//complete();
 			}
 		}
 		$: headline = q1Steps[q].h2;
@@ -137,8 +133,10 @@
 			<h3>How to change your default browser for windows</h3> 
 			<h3>how to change your defualt browser for mac</h3> 
 		<div class="button-holder">
-			<button class='btn-dark' on:click={complete}>Yes, I did</button>
-			<button class='btn-dark' on:click={incomplete}>No, I didn't</button>
+			<Complete>
+        		Yes, I did
+    		</Complete>
+			<button class='btn-dark'>No, I didn't</button>
 		</div>
 		{/if}
 

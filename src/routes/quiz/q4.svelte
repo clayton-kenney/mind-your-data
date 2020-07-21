@@ -1,7 +1,13 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
+	import Complete from '../../components/complete.svelte'
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+
+    onMount(async() => {$quizSteps[$count].status = 1});
 
 	//confirm comletion of quiz to master quiz component
 	function complete() {
@@ -78,7 +84,9 @@
 	</ul>
 	<h3>Did you turn off location on your device></h3>
 	<div class="button-holder">
-		<button on:click={complete}>Yes, I did</button>
+		<Complete>
+			Yes, I did
+		</Complete>
 		<button on:click={incomplete}>No, I didn't</button>
 	</div>
 </section>

@@ -4,7 +4,12 @@
 	import { onMount, afterUpdate } from 'svelte';
 	import Detect from '../../components/Detect.svelte'
 	import Trans from '../../components/TransHelp.svelte';
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+	 import Complete from '../../components/complete.svelte'
 
+    onMount(async() => {$quizSteps[$count].status = 1});
 	//confirm comletion of quiz to master quiz component
 	function complete() {
 		dispatch('message', {
@@ -47,7 +52,9 @@
 	<Detect />
 	<div class="button-holder">
 		<h3>Did you disable tracking cookies?</h3>
-		<button on:click={complete}>Yup</button>
+		<Complete>
+			Yup
+		</Complete>
 		<button on:click={incomplete}>No I then following me</button>
 	</div>
 </section>

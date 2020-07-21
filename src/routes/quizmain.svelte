@@ -16,12 +16,11 @@
 import { slide } from 'svelte/transition';
 import { quintOut, quintIn } from 'svelte/easing';
 
-
-
+import { count } from '../store.js'
 
  const quizSteps =  [
         { id:'1', component: Quiz1, name: 'Webcam Challenge', complete:false},
-        { id: '2', component: Quiz3, name: 'Privacy Settings', complete:false},
+        { id: '2', component: Quiz3, name: 'HTTPS Everywhere', complete:false},
         { id: '3', component: Checkpoint1, name: 'Security vs Privacy', complete:false},
         { id: '4', component: Quiz2, name: 'Search Engine', complete:false},
         { id: '5', component: Quiz8, name: 'Privacy Settings', complete:false},
@@ -32,23 +31,26 @@ import { quintOut, quintIn } from 'svelte/easing';
         { id: '10', component: Quiz7, name: 'iOT', complete:false},
         { id: '11', component: Quiz9, name: 'How to Make change', complete:false},
 ]
-$: quizNum = 0;
+//$: quizNum = 0;
+let quizNum = 0;
+$:quizNum = $count;
 function handleMessage(event) {
               
-              quizNum++;
+              //quizNum++;
               //quizSteps[Object.values(event.detail[0])].complete = object.values(event.detail[1])
               let status = Object.values(event.detail);
-              console.log(status);
               let location = status[0];
               quizSteps[location].complete = status[1];
-              console.log(quizSteps[location]);
+              //console.log(quizSteps[location]);
 	}
 </script>
 <svelte:head>
 	<title>Test your knowledge</title>
 </svelte:head>
 <main transition:slide="{{delay: 100, duration: 400, easing: quintOut}}">
-       <Completion class='step'/>
+       <Completion class='step'>
+              Chapter {quizSteps[quizNum].id + ': '+ quizSteps[quizNum].name}
+       </Completion>
        <section id="main-content">
         <svelte:component this={quizSteps[quizNum].component} on:message={handleMessage} />
        <!--<Quiz2 on:message={handleMessage}/> -->
@@ -64,18 +66,23 @@ function handleMessage(event) {
 <style>
        main {
               display: flex;
-              flex-flow: row wrap;
-              margin-left:50px;
-              margin-top:25px;
+              flex-flow: row;
 
        }
        .step{
 		margin-bottom: 55px;
        }
        #main-content{
-              margin-top: -50px;
+              background: #38424D;
+              /*height: 86vh; */
+              border-radius: 15px;
+              border: 0px;
+              margin: 12px 22px 40px 20px;
+              padding: 9.3vh 5vw 0vh 9.3vh;
+              color: #FFFFFF;
+              /*margin-top: -50px;
               margin-left: 21vw;
               margin-right: 50px;
-              padding-right: 15px;
+              padding-right: 15px;*/
        }
 </style>

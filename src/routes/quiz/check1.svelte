@@ -1,10 +1,14 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount, afterUpdate, createEventDispatcher } from 'svelte';
 	import Detect from '../../components/Detect.svelte'
     import Trans from '../../components/TransHelp.svelte';
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+	 import Complete from '../../components/complete.svelte'
 
+    onMount(async() => {$quizSteps[$count].status = 1});
 	//confirm comletion of quiz to master quiz component
 	function complete() {
 		dispatch('message', {
@@ -47,8 +51,7 @@
 <p>    It would be great if your risks began and ended with that theoretical bank. But your personal information is likely all over the connected world — in government offices, at healthcare providers, at stores and restaurants, and in many of your online accounts. You might say it’s everywhere — not literally, but it’s certainly in enough places that it’s out of your control.</p>    
 <p>If a cybercriminal accesses that information, it could be off to the races. Your privacy and security could both get trampled.</p>    
 <div class="button-holder">
-    <button on:click={complete}>Continue Privacy Challege</button>
-    
+    <Complete>Continue Privacy Challege</Complete>
 </div>
 </Trans>
 

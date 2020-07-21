@@ -1,19 +1,11 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import { onMount, afterUpdate, onDestroy } from 'svelte';
+    import { onMount, beforeUpdate, afterUpdate, onDestroy } from 'svelte';
     import Trans from '../../components/TransHelp.svelte';
-  
-
-
+    import Complete from '../../components/complete.svelte'
+    import { count } from '../../store.js'
+    import { quizSteps } from '../../store.js'
 	const dispatch = createEventDispatcher();
-
-	//confirm comletion of quiz to master quiz component
-	function complete() {
-		dispatch('message', {
-			question: 0, //Q-1 becaue of array
-			complete: 'true'
-		});
-	}
 	function incomplete() {
 		dispatch('message', {
 			question: 0, //Q-1 becaue of array
@@ -33,7 +25,8 @@
 		q+=2;
 		console.log(q);
     }
-    
+    //sets aside icon to in progress via store
+    onMount(async() => {$quizSteps[$count].status = 1});
     //Start Video on update
     let video;
 	afterUpdate(async() => {
@@ -49,7 +42,7 @@
 		}
 })
 //stop video function on end of component   
-    onDestroy(async() => { 
+    afterUpdate(async() => { 
         function stopStreamedVideo(video) { 
             const stream = video.srcObject;
             const tracks = stream.getTracks();
@@ -63,6 +56,7 @@
 	<title>Webcam Challenge</title>
 </svelte:head>
 <Trans>
+
 {#if q==0}
 <section>
 	<h2>Is your Webcam Covered?</h2> 
@@ -82,7 +76,10 @@
    <div class="video-holder"><video autoplay="true" id="videoElement"></video></div>
     <p id="alert">Cover your webcam</p>
     <p id="not-covered">You haven’t covered your webcame or did not do it properly. Please cover your webcam completely to proceed to the next step.</p>
-    <button on:click={incomplete}>Onwards to the next challenge</button>
+    <!--<button on:click={incomplete}>Onwards to the next challenge</button> -->
+    <Complete>
+        Onwards to the next challenge
+    </Complete>
 {:else}
     <video autoplay="true" id="videoElement"></video>
 {/if}

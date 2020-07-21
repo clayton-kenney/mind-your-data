@@ -1,7 +1,13 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+	 import Complete from '../../components/complete.svelte'
+
+    onMount(async() => {$quizSteps[$count].status = 1});
 
 	//confirm comletion of quiz to master quiz component
 	function complete() {
@@ -41,9 +47,9 @@
 	<h2>Configure each of your devices to use another public DNS</h2>
 	<p>You can configure each of your devices to use another public DNS. But don’t use Google’s public DNS! Remember, it’s an ad company, so they really want to see your web history. Both Quad9 and Cloudflare’s 1.1.1.1 have strong privacy policies. But Quad9 is a not-for-profit organization, so it’s a little easier to trust them.</p>
 	<div class="button-holder">
-		<button on:click={complete}>Link1</button>
-		<button on:click={complete}>Link2</button>
-		<button on:click={complete}>Already did it</button>
+		<Complete>Link1</Complete>
+		<Complete>Link2</Complete>
+		<Complete>Already did it</Complete>
 		<button on:click={incomplete}>Don't care, let then snoop</button>
 	</div>
 </section>

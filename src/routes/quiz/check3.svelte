@@ -3,9 +3,14 @@
 	const dispatch = createEventDispatcher();
 	import { onMount, afterUpdate } from 'svelte';
 	import Detect from '../../components/Detect.svelte'
+	import Complete from '../../components/complete.svelte'
 
     import Trans from '../../components/TransHelp.svelte';
+ //sets aside icon to in progress via store
+ import { quizSteps } from '../../store.js'
+ import { count } from '../../store.js'
 
+    onMount(async() => {$quizSteps[$count].status = 1});
 	//confirm comletion of quiz to master quiz component
 	function complete() {
 		dispatch('message', {
@@ -37,7 +42,7 @@
         <p>It started with the internet, then google realized that they had a data surplus, and our behavior has value. Now they sell it to the highest bidder.
             </p>
     <div class="button-holder">
-        <button on:click={complete}>Continue Challege</button>
+		<Complete>Continue Challenge</Complete>
         <button >Sign a Petition</button>
         <button >Contact your Rep</button>
         

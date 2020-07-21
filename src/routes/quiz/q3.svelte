@@ -1,9 +1,15 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
+	import Complete from '../../components/complete.svelte'
 
-	//confirm comletion of quiz to master quiz component
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+
+	onMount(async() => {$quizSteps[$count].status = 1});
+	
 	function complete() {
 		dispatch('message', {
 			question: 2,
@@ -44,7 +50,10 @@
 	<button>Download extension now</button>
 	<button>Already Have it</button>
 	<button on:click={incomplete}>Don't want to download it</button>
-	<button on:click={complete}>Submit</button>
+	<Complete>
+		Submit
+	</Complete>
+	
 </div>
 {/if}
 </Trans>

@@ -1,8 +1,14 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
+	import Complete from '../../components/complete.svelte'
 
+	 //sets aside icon to in progress via store
+	 import { quizSteps } from '../../store.js'
+	 import { count } from '../../store.js'
+
+    onMount(async() => {$quizSteps[$count].status = 1});
 	//confirm comletion of quiz to master quiz component
 	function complete() {
 		dispatch('message', {
@@ -47,8 +53,12 @@
 	<h2>Download Privacy Badger extention</h2>
 	<p>When you view a webpage, that page will often be made up of content from many different sources. Privacy Badger keeps track of all of this. If as you browse the web, the same source seems to be tracking your browser across different websites, then Privacy Badger springs into action, telling your browser not to load any more content from that source. And when your browser stops loading content from a source, that source can no longer track you. Voila!</p>
 	<div class="button-holder">
-		<button on:click={complete}>Download extension now</button>
-		<button on:click={complete}>Already Have it</button>
+		<Complete>
+			Download extension now
+		</Complete>
+		<Complete>
+			Already Have it
+		</Complete>
 		<button on:click={incomplete}>Don't want to download it</button>
 	</div>
 </section>
