@@ -4,7 +4,7 @@
    const increase = () => step.update(n => n+= q);
         
 </script>
-<button on:click={increase()}>
+<button on:click={increase}>
     <slot>
 
     </slot>
