@@ -11,7 +11,6 @@
     //Start Video on update
     let video;
 	afterUpdate(async() => {
-    console.log($step);
 	video = document.querySelector("#videoElement");
 	if (navigator.mediaDevices.getUserMedia) {
   	navigator.mediaDevices.getUserMedia({ video: true })
@@ -31,7 +30,7 @@
                 tracks[0].stop();
                 
                 }
-                video.srcObject = null;
+                //video.srcObject = null;
             });
 </script>
 <svelte:head>
