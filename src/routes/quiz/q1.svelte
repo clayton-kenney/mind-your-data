@@ -2,7 +2,7 @@
     import { onMount, beforeUpdate, afterUpdate, onDestroy } from 'svelte';
     import Trans from '../../components/TransHelp.svelte';
     import Complete from '../../components/complete.svelte'
-    import Next from '../../components/Next.svelte'
+	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
     import { count, step, quizSteps } from '../../store.js'
     import Back from '../../components/Back.svelte'
 
@@ -43,9 +43,7 @@
 <section>
 	<h2>Is your Webcam Covered?</h2> 
     <p>It’s likely your computer already has a built-in camera, and it’s possible for that camera to be used to spy on you.  <br>  If your webcam for whatever reason has been hacked, the person on the other side can take pictures and video of anything or anyone. No, this isn’t just paranoia–a recent survey conducted by HP found that 10% in the U.S. either know someone whose webcam was hacked or have had their own webcam hacked.</p>
-    <Next>
-        Continue
-    </Next>
+    <Next>Continue</Next>
 </section>
 {:else if $step==1}
 <section>
