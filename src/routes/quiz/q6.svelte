@@ -3,7 +3,7 @@
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte' //set success={false} for failure
-	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
@@ -19,7 +19,7 @@
 <section>
 	<h2>Domain Name Service</h2> 
 	<p>When you type an address in the address bar (such as mindyourdata.org), your device asks a Domain Name Server to translate that address into an IP address (a unique combination of numbers and dots). By default, your ISP or your mobile carrier runs a DNS for their users. It means that they can see all your web history. Big telecom companies are going to take advantage of that to ramp up their advertising efforts. By default, your DNS query is also unencrypted and can be intercepted by people running the network. Some governments also ask telecom companies to block some websites on their DNS servers — some countries block Facebook for censorship reasons, others block The Pirate Bay for online piracy reasons.</p>
-	<Next>Continue</Next>
+	<Btn>Continue</Btn>
 </section>
 {:else}
 <section>

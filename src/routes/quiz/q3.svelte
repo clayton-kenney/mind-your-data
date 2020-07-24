@@ -5,7 +5,7 @@
 	import Trans from '../../components/TransHelp.svelte';
 	 
 	import Complete from '../../components/complete.svelte' //set success={false} for failure
-	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
@@ -103,7 +103,7 @@
 				</label>
 		</form>
 		<section id='next-skip'> 
-			<Next type=Submit> Submit</Next>
+			<Btn type=Submit> Submit</Btn>
 		</section>
 		{:else if $step==1}
 			
@@ -111,7 +111,7 @@
 			<p id='warning'>Safety level: {browserChoice[choice].safety}</p>
 			<p>{browserChoice[choice].body}</p>
 			<!--<button class='btn-dark' on:click={showAlternatives}>Check Alternatives</button> -->
-			<Next type=Submit>Check Alternatives</Next>
+			<Btn type=Submit>Check Alternatives</Btn>
 		{:else}
 			<h1>Switch Search Engine</h1>
 			<h2>Here is a list of our recomended search engines</h2>

@@ -3,7 +3,7 @@
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte' //set success={false} for failure
-	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
@@ -22,7 +22,7 @@
 		</p>
 		<p>Many sites on the web offer some limited support for encryption over HTTPS, but make it difficult to use. For instance, they may default to unencrypted HTTP, or fill encrypted pages with links that go back to the unencrypted site. The HTTPS Everywhere extension fixes these problems by using clever technology make every site useto rewrite requests to these sites to HTTPS.With HTTPS, people running the network between your device and the server hosting the website you’re browsing, or other prying eyes, can’t see your requests and your internet traffic. 
 		</p>
-		<Next>Continue to next page</Next>
+		<Btn>Continue to next page</Btn>
 </section>
 {:else}
 <section>

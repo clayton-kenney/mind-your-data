@@ -5,7 +5,7 @@
 	import Detect from '../../components/Detect.svelte'
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte' //set success={false} for failure
-	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
@@ -23,7 +23,7 @@
 	<p>Well, not that kind of cookie. Many websites allow third party cookies which are designed to hold data specific to a particular user and website. </p>
 	<p>You’re just supposed to trust the willingness and ability of any organization to put your privacy over their need to meet their goals, which usually entail profits. Yeah. Sure.</p>
 	<div class="button-holder">
-		<Next>Continue</Next>
+		<Btn>Continue</Btn>
 	</div>
 </section>
 {:else}

@@ -3,7 +3,7 @@
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte'
-    import Next from '../../components/Next.svelte'
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
@@ -24,7 +24,7 @@
 	<p>If you change the site (eg from the front page to the news area) the tracker recognize you and combines the data - "user ABC stayed 33s in the front page and switched to the news area and stayed there for 3min". For webmaster powerful data because they know how important their front page is and where they have too change something. 
 	</p>
 	<p>Trackers are installed on many websites to log your behavior. Each time you open a website with a tracker (of course every sub-site of a website too). Trackers are included in the website code and are activated each time you visit the site.</p>
-	<Next>Continue</Next>
+	<Btn>Continue</Btn>
 </section>
 {:else}
 <section>

@@ -3,7 +3,7 @@
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte' //set success={false} for failure
-	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
@@ -24,8 +24,8 @@
 	</p>
 	<p>The three big makers of smart speakers—Amazon, Apple, and Google—say they do this to improve the device’s performance, not for targeting ads. But privacy advocates argue that, without prior notice, any listening from employees and contractors is unfair to consumers.</p>
 	<div class="button-holder">
-		<Next>I own a smart speaker</Next>
-		<Next q={2}>I don't own a smart speaker</Next>
+		<Btn>I own a smart speaker</Btn>
+		<Btn q={2}>I don't own a smart speaker</Btn>
 	</div>
 </section>
 {:else if $step==1}
