@@ -1,96 +1,43 @@
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
+	import { onMount, afterUpdate } from 'svelte';
+	import Detect from '../../components/Detect.svelte'
 	import Trans from '../../components/TransHelp.svelte';
-	import Complete from '../../components/complete.svelte'
-	 //sets aside icon to in progress via store
-	 import { quizSteps } from '../../store.js'
-	 import { count } from '../../store.js'
+	import Complete from '../../components/complete.svelte' //set success={false} for failure
+	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import { count, step, quizSteps } from '../../store.js'
+	import Back from '../../components/Back.svelte'
 
+	//sets aside icon to in progress via store
     onMount(async() => {$quizSteps[$count].status = 1});
-
 	//confirm comletion of quiz to master quiz component
-	function complete() {
-		dispatch('message', {
-			question: 2, //Q-1 becaue of array
-			complete: 'true'
-		});
-	}
-	function incomplete() {
-		dispatch('message', {
-			question: 2, //Q-1 becaue of array
-			complete: 'false'
-		});
-	}
-	let q = 0;
-	function advance() {
-		q++;
-		console.log(q);
-	}
-	function advanceTwo() {
-		q+=2;
-		console.log(q);
-	}
 </script>
 <svelte:head>
-	<title>Location Tracking</title>
+	<title>Question 4: Privacy Settings</title>
 </svelte:head>
 <Trans>
-{#if q==0}
+{#if $step==0}
 <section>
-	<h2>Location Tracking</h2> 
-		<p>Pervasive tracking of location at the very least risks putting you at a disadvantage as a consumer. Certainly if you live somewhere without a proper regulatory framework for privacy. It’s also worth bearing in mind how lax tech giants can be where location privacy is concerned — whether it’s Uber’s infamous ‘god view’ tool or Snapchat leaking schoolkids’ location or Strava accidentally revealing the locations of military bases. Their record is pretty terrible.</p>	
-		<button on:click={advance}>Continue to next page</button>
-</section>
-{:else if q==1}
-<section>
-	<h2>What mobile device do you use?</h2>
+	<h2>Privacy settings: Want a cookie?</h2> 
+	<p>Well, not that kind of cookie. Many websites allow third party cookies which are designed to hold data specific to a particular user and website. </p>
+	<p>You’re just supposed to trust the willingness and ability of any organization to put your privacy over their need to meet their goals, which usually entail profits. Yeah. Sure.</p>
 	<div class="button-holder">
-		<button on:click={advance}>iOS</button>
-		<button on:click={advanceTwo}>android</button>
-	</div>
-</section>
-{:else if q==2}
-<section>
-	<h2>Turn locaiton off on IOS device</h2>
-	<p>Step 1. Go to Settings > Privacy > Location Services.</p>
-	<p>Step 2. Make sure that Location Services is on.</p>
-	<p>Step 3. Scroll down to find the app.</p>
-	<p>Step 4. Tap the app and select an option:</p>
-	<ul>
-		<li>Never: Prevents access to Location Services information.</li>
-		<li>Ask Next Time: This allows you to choose Always While Using App, Allow Once, or Don't Allow.</li>
-		<li>While Using the App: Allows access to Location Services only when the app or one of its features is visible on screen. If an app is set to While Using the App, you might see your status bar turn blue with a message that an app is actively using your location.</li>
-		<li>Always: Allows access to your location even when the app is in the background.</li>
-	</ul>
-	<h3>Did you turn off location on your device></h3>
-	<div class="button-holder">
-		<button on:click={complete}>Yes, I did</button>
-		<button on:click={incomplete}>No, I didn't</button>
+		<Next>Continue</Next>
 	</div>
 </section>
 {:else}
 <section>
-	<h2>Turn locaiton off on and Android Device</h2>
-	<p>Step 1. Go to Settings > Privacy > Location Services.</p>
-	<p>Step 2. Make sure that Location Services is on.</p>
-	<p>Step 3. Scroll down to find the app.</p>
-	<p>Step 4. Tap the app and select an option:</p>
-	<ul>
-		<li>Never: Prevents access to Location Services information.</li>
-		<li>Ask Next Time: This allows you to choose Always While Using App, Allow Once, or Don't Allow.</li>
-		<li>While Using the App: Allows access to Location Services only when the app or one of its features is visible on screen. If an app is set to While Using the App, you might see your status bar turn blue with a message that an app is actively using your location.</li>
-		<li>Always: Allows access to your location even when the app is in the background.</li>
-	</ul>
-	<h3>Did you turn off location on your device></h3>
+	<h2>Give 3rd party cookies the boot</h2>
+	<Detect />
 	<div class="button-holder">
-		<Complete>
-			Yes, I did
-		</Complete>
-		<button on:click={incomplete}>No, I didn't</button>
+		<h3>Did you disable tracking cookies?</h3>
+		<Complete>Yup</Complete>
+		<Complete success={false}>No, I don't mind them following me</Complete>
 	</div>
 </section>
 {/if}
+<Back/>
 </Trans>
 <style>
    .button-holder {

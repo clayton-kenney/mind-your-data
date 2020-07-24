@@ -1,32 +1,41 @@
 <script>
-import { count } from '../store.js'
-import { onMount, createEventDispatcher } from 'svelte';
-import { quizSteps } from '../store.js'
-const dispatch = createEventDispatcher();
-
+import { count, step, quizSteps } from '../store.js'
+export let success = true;
 
 //sets current icon for sidebar
 function increment() {
         $quizSteps[$count].complete = true;
         $quizSteps[$count].status = 2;
         count.update(n => n + 1)
-        console.log($quizSteps);
-    }
+        step.set(0);
+}
+function incomplete() {
+        $quizSteps[$count].complete = false;
+        $quizSteps[$count].status = 0;
+        count.update(n => n + 1)
+        step.set(0);
+}
 </script>
-<button on:click={increment}>
-    <slot>
+{#if success}
+    <button on:click={increment}>
+        <slot>
 
-    </slot>
-</button>
+        </slot>
+    </button>
+{:else}
+    <button on:click={incomplete}>
+        <slot>
+
+        </slot>
+    </button>
+{/if}
+       
 <style>
     button {
-        color:white;
-		background: #0F2033;
-		border-radius: 6px;
-		width: 30%;
-		text-align: center;
-		padding: 5px 10px;
-        border: none;
+        padding: 10px 20px;
+			margin: 10px;
+			border: black solid 0px;
+			border-radius: 8px;
     }
 </style>
 

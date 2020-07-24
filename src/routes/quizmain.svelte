@@ -20,19 +20,18 @@ import { count } from '../store.js'
 
  const quizSteps =  [
         { id:'1', component: Quiz1, name: 'Webcam Challenge', complete:false},
-        { id: '2', component: Quiz3, name: 'HTTPS Everywhere', complete:false},
+        { id: '2', component: Quiz2, name: 'HTTPS Everywhere', complete:false},
         { id: '3', component: Checkpoint1, name: 'Security vs Privacy', complete:false},
-        { id: '4', component: Quiz2, name: 'Search Engine', complete:false},
-        { id: '5', component: Quiz8, name: 'Privacy Settings', complete:false},
-        { id: '6', component: Quiz6, name: 'Tracker blocker', complete:false},
-        { id: '7', component: Quiz5, name: 'DNS', complete:false},
+        { id: '4', component: Quiz3, name: 'Search Engine', complete:false},
+        { id: '5', component: Quiz4, name: 'Privacy Settings', complete:false},
+        { id: '6', component: Quiz5, name: 'Tracker blocker', complete:false},
+        { id: '7', component: Quiz6, name: 'DNS', complete:false},
         { id: '8', component: Checkpoint2, name: 'Surveillance Capitalism', complete:false},
-        { id: '9', component: Quiz4, name: 'Location Tracking', complete:false},
-        { id: '10', component: Quiz7, name: 'iOT', complete:false},
-        { id: '11', component: Quiz9, name: 'How to Make change', complete:false},
+        { id: '9', component: Quiz7, name: 'Location Tracking', complete:false},
+        { id: '10', component: Quiz8, name: 'iOT', complete:false},
+        { id: '11', component: Checkpoint3, name: 'How to Make change', complete:false},
 ]
-//$: quizNum = 0;
-let quizNum = 0;
+
 $:quizNum = $count;
 function handleMessage(event) {
               

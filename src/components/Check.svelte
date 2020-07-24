@@ -1,6 +1,5 @@
 <script>
     export let active;
-    console.log(active);
     active =0;
 </script>
 

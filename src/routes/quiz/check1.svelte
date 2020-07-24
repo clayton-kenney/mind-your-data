@@ -7,6 +7,7 @@
 	 import { quizSteps } from '../../store.js'
 	 import { count } from '../../store.js'
 	 import Complete from '../../components/complete.svelte'
+	 import Back from '../../components/Back.svelte'
 
     onMount(async() => {$quizSteps[$count].status = 1});
 	//confirm comletion of quiz to master quiz component
@@ -53,6 +54,7 @@
 <div class="button-holder">
     <Complete>Continue Privacy Challege</Complete>
 </div>
+<Back/>
 </Trans>
 
 <style>

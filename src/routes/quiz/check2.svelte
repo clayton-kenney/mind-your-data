@@ -5,6 +5,7 @@
 	import Detect from '../../components/Detect.svelte'
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte'
+	import Back from '../../components/Back.svelte'
 
 	 //sets aside icon to in progress via store
 	 import { quizSteps } from '../../store.js'
@@ -46,7 +47,8 @@
     <div class="button-holder">
 		<Complete>Continue Challenge</Complete>
         
-    </div>
+	</div>
+	<Back/>
 </Trans>
 
 <style>

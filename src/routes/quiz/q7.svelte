@@ -2,120 +2,77 @@
 	import { onMount, createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
-	 //sets aside icon to in progress via store
-	 import { quizSteps } from '../../store.js'
-	 import { count } from '../../store.js'
-	 import Complete from '../../components/complete.svelte'
+	import Complete from '../../components/complete.svelte' //set success={false} for failure
+	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import { count, step, quizSteps } from '../../store.js'
+	import Back from '../../components/Back.svelte'
 
+	//sets aside icon to in progress via store
     onMount(async() => {$quizSteps[$count].status = 1});
 
-	//confirm comletion of quiz to master quiz component
-	function complete() {
-		dispatch('message', {
-			question: 2, //Q-1 becaue of array
-			complete: 'true'
-		});
-	}
-	function incomplete() {
-		dispatch('message', {
-			question: 2, //Q-1 becaue of array
-			complete: 'false'
-		});
-	}
-	let q = 0;
-	function advance() {
-		q++;
-		console.log(q);
-	}
-	function advanceTwo() {
-		q+=2;
-		console.log(q);
-	}
-	let current = 'initial';
 </script>
 <svelte:head>
-	<title>Internet of things( Alexa, Home devices)</title>
+	<title>Location Tracking</title>
 </svelte:head>
 <Trans>
-{#if q==0}
+{#if $step==0}
 <section>
-	<h2>Internet of things( Alexa, Home devices)</h2> 
-	<p>It should be clear by now that your daily interactions technology, let alone your smart speaker are anything but private. A series of investigative reports have shown that other people are reviewing recordings or transcripts of your conversations. 
-	</p>
-	<p>The three big makers of smart speakers—Amazon, Apple, and Google—say they do this to improve the device’s performance, not for targeting ads. But privacy advocates argue that, without prior notice, any listening from employees and contractors is unfair to consumers.</p>
-	<div class="button-holder">
-		<button on:click={advance}>I own a smart speaker</button>
-		<button on:click={advanceTwo}>I don't own a smart speaker</button>
-	</div>
+	<h2>Location Tracking</h2> 
+		<p>Pervasive tracking of location at the very least risks putting you at a disadvantage as a consumer. Certainly if you live somewhere without a proper regulatory framework for privacy. It’s also worth bearing in mind how lax tech giants can be where location privacy is concerned — whether it’s Uber’s infamous ‘god view’ tool or Snapchat leaking schoolkids’ location or Strava accidentally revealing the locations of military bases. Their record is pretty terrible.</p>	
+	<h3>What mobile device do you use?</h3>
+		<div class="button-holder">
+			<Next>iOS</Next>
+			<Next n={2}>Android</Next>
+		</div>
 </section>
-{:else if q==1}
+{:else if $step==1}
 <section>
-	<div class:active="{current === 'amazon'}"
-	on:click="{() => current = 'amazon'}">
-		<p>Amazon Alexa</p>
-		{#if current==='amazon'}
-		<ul>
-			<li>Step 1: Open the Alexa app on your smartphone and tap the menu button on the top-left of the screen.</li>
-			<li>Step 2: Select Settings > Alexa Privacy > Manage How Your Data Improves Alexa.</li>
-			<li>Step 3: Switch off the toggle next to Help Improve Amazon Services and Develop New Features.</li>
-			<li>Step 4: Then switch off the toggle next to your name under Use Messages to Improve Transcriptions.</li>
-		</ul>
-		{/if}
-	</div>
-	
-	<hr>
-	<div class:active="{current === 'google'}"
-	on:click="{() => current = 'google'}">
-		<p>Google Assistant</p>
-		{#if current==='google'}
-		<ul>
-			<li>Step 1: Open the Alexa app on your smartphone and tap the menu button on the top-left of the screen.</li>
-			<li>Step 2: Select Settings > Alexa Privacy > Manage How Your Data Improves Alexa.</li>
-			<li>Step 3: Switch off the toggle next to Help Improve Amazon Services and Develop New Features.</li>
-			<li>Step 4: Then switch off the toggle next to your name under Use Messages to Improve Transcriptions.</li>
-		</ul>
-		{/if}
-	</div>
-	
-	<hr>
-	<div class:active="{current === 'apple'}"
-	on:click="{() => current = 'apple'}">
-		<p>Apple Siri</p>
-		{#if current==='apple'}
-		<ul>
-			<li>Step 1: Open the Alexa app on your smartphone and tap the menu button on the top-left of the screen.</li>
-			<li>Step 2: Select Settings > Alexa Privacy > Manage How Your Data Improves Alexa.</li>
-			<li>Step 3: Switch off the toggle next to Help Improve Amazon Services and Develop New Features.</li>
-			<li>Step 4: Then switch off the toggle next to your name under Use Messages to Improve Transcriptions.</li>
-		</ul>
-		{/if}
-	</div>
-	
-	<hr>
+	<h2>Turn locaiton off on IOS device</h2>
+	<p>Step 1. Go to Settings > Privacy > Location Services.</p>
+	<p>Step 2. Make sure that Location Services is on.</p>
+	<p>Step 3. Scroll down to find the app.</p>
+	<p>Step 4. Tap the app and select an option:</p>
+	<ul>
+		<li>Never: Prevents access to Location Services information.</li>
+		<li>Ask Next Time: This allows you to choose Always While Using App, Allow Once, or Don't Allow.</li>
+		<li>While Using the App: Allows access to Location Services only when the app or one of its features is visible on screen. If an app is set to While Using the App, you might see your status bar turn blue with a message that an app is actively using your location.</li>
+		<li>Always: Allows access to your location even when the app is in the background.</li>
+	</ul>
+	<h3>Did you turn off location on your device></h3>
 	<div class="button-holder">
-		<h3>Did you setup privacy mode</h3>
-		<button on:click={complete}>Yes, I Did</button>
-		<button on:click={incomplete}>No I don't want to</button>
+		<Complete>Yes, I did</Complete>
+		<Complete success={false}>No, I didn't</Complete>
 	</div>
 </section>
 {:else}
-	<section>
-		<h2>Hoooray!</h2>
-		<p>One less way people can snoop on your privacy.</p>
-			<button on:click={complete}>Next Challenge</button>
-	</section>
+<section>
+	<h2>Turn locaiton off on and Android Device</h2>
+	<p>Step 1. Go to Settings > Privacy > Location Services.</p>
+	<p>Step 2. Make sure that Location Services is on.</p>
+	<p>Step 3. Scroll down to find the app.</p>
+	<p>Step 4. Tap the app and select an option:</p>
+	<ul>
+		<li>Never: Prevents access to Location Services information.</li>
+		<li>Ask Next Time: This allows you to choose Always While Using App, Allow Once, or Don't Allow.</li>
+		<li>While Using the App: Allows access to Location Services only when the app or one of its features is visible on screen. If an app is set to While Using the App, you might see your status bar turn blue with a message that an app is actively using your location.</li>
+		<li>Always: Allows access to your location even when the app is in the background.</li>
+	</ul>
+	<h3>Did you turn off location on your device></h3>
+	<div class="button-holder">
+		<Complete>Yes, I did</Complete>
+		<Complete success={false}>No, I didn't</Complete>
+	</div>
+</section>
 {/if}
+<Back/>
 </Trans>
 <style>
+	section {
+		width: 100%;
+	}
    .button-holder {
 	width: 27vw;
 	display: flex;
     flex-flow: column nowrap;
-   }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
    }
 </style>

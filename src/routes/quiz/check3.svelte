@@ -9,6 +9,7 @@
  //sets aside icon to in progress via store
  import { quizSteps } from '../../store.js'
  import { count } from '../../store.js'
+ import Back from '../../components/Back.svelte'
 
     onMount(async() => {$quizSteps[$count].status = 1});
 	//confirm comletion of quiz to master quiz component
@@ -46,7 +47,8 @@
         <button >Sign a Petition</button>
         <button >Contact your Rep</button>
         
-    </div>
+	</div>
+<Back/>
 </Trans>
 
 <style>

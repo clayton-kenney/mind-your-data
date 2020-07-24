@@ -1,35 +1,17 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
     import { onMount, beforeUpdate, afterUpdate, onDestroy } from 'svelte';
     import Trans from '../../components/TransHelp.svelte';
     import Complete from '../../components/complete.svelte'
-    import { count } from '../../store.js'
-    import { quizSteps } from '../../store.js'
-	const dispatch = createEventDispatcher();
-	function incomplete() {
-		dispatch('message', {
-			question: 0, //Q-1 becaue of array
-			complete: 'false'
-		});
-	}
-    let q = 0;
-    let isActive;
-	function advance() {
-		q++;
-        console.log(q);
-        if (q=2) {
-            isActive= true;
-        }
-	}
-	function advanceTwo() {
-		q+=2;
-		console.log(q);
-    }
+    import Next from '../../components/Next.svelte'
+    import { count, step, quizSteps } from '../../store.js'
+    import Back from '../../components/Back.svelte'
+
     //sets aside icon to in progress via store
     onMount(async() => {$quizSteps[$count].status = 1});
     //Start Video on update
     let video;
 	afterUpdate(async() => {
+    console.log($step);
 	video = document.querySelector("#videoElement");
 	if (navigator.mediaDevices.getUserMedia) {
   	navigator.mediaDevices.getUserMedia({ video: true })
@@ -57,22 +39,24 @@
 </svelte:head>
 <Trans>
 
-{#if q==0}
+{#if $step==0}
 <section>
 	<h2>Is your Webcam Covered?</h2> 
-	<p>It’s likely your computer already has a built-in camera, and it’s possible for that camera to be used to spy on you.  <br>  If your webcam for whatever reason has been hacked, the person on the other side can take pictures and video of anything or anyone. No, this isn’t just paranoia–a recent survey conducted by HP found that 10% in the U.S. either know someone whose webcam was hacked or have had their own webcam hacked.</p>
-	<button on:click={advance}>Continue</button>
+    <p>It’s likely your computer already has a built-in camera, and it’s possible for that camera to be used to spy on you.  <br>  If your webcam for whatever reason has been hacked, the person on the other side can take pictures and video of anything or anyone. No, this isn’t just paranoia–a recent survey conducted by HP found that 10% in the U.S. either know someone whose webcam was hacked or have had their own webcam hacked.</p>
+    <Next>
+        Continue
+    </Next>
 </section>
-{:else if q==1}
+{:else if $step==1}
 <section>
 	<h2>Cover Your Webcam</h2>
 	<p>Cover your webcam. You can get fancy removable stickers for this purpose, but for now, find a sticky note or piece of masking tape and cover your webcam when it’s not in use (like right now). </p>
 	<div class="button-holder">
-        <button on:click={advance}>It's covered</button>
-        <button on:click={advanceTwo}>No Thanks, It's a hassle</button>
+        <Next>It's covered</Next>
+        <Complete success={false}>No Thanks, It's a hassle</Complete> 
 	</div>
 </section>
-{:else if q==2}
+{:else if $step==2}
    <div class="video-holder"><video autoplay="true" id="videoElement"></video></div>
     <p id="alert">Cover your webcam</p>
     <p id="not-covered">You haven’t covered your webcame or did not do it properly. Please cover your webcam completely to proceed to the next step.</p>
@@ -82,7 +66,12 @@
     </Complete>
 {:else}
     <video autoplay="true" id="videoElement"></video>
+    <Complete>
+        Onwards to the next challenge
+    </Complete>
 {/if}
+
+<Back/>
 </Trans>
 <style>
    .button-holder {
@@ -92,12 +81,6 @@
    }
    .video-holder{
        width: 100%;
-   }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
    }
    #alert {
        color: red;

@@ -1,214 +1,59 @@
 <script>
-	import { onMount, afterUpdate } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
-	//import Completion from '../../components/Completion.svelte'
+	import { onMount, createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
-	import Complete from '../../components/complete.svelte'
+	import Complete from '../../components/complete.svelte' //set success={false} for failure
+	import Next from '../../components/Next.svelte' //set <Next q={2}> to skip multiple steps
+	import { count, step, quizSteps } from '../../store.js'
+	import Back from '../../components/Back.svelte'
 
-	 //sets aside icon to in progress via store
-	 import { quizSteps } from '../../store.js'
-	 import { count } from '../../store.js'
-
+     //sets aside icon to in progress via store
 	onMount(async() => {$quizSteps[$count].status = 1});
 	
-
-	const dispatch = createEventDispatcher();
-
-		let q1Steps = [
-		{ stepNum: '1', 
-		h2: 'What Search Engine do you use?', 
-		name: 'Introduction', 
-		classn: 'complete',
-		d: '1 / 3',
-		browsers: ['Google Chrome', 'DuckDuckGo', 'Bing', 'Something', 'Something'],
-		copy: 'Did you know everything time you look up something using search engine, you are giving your information to thousands of 3rd party advertisers? Vast amount of your data has been taken from you without a single consent only to manipulate your purchase habit and long-term behavior. In this exercise, we will walk through with you how to avoid....'}
-		]
-		let browserChoice = [
-			{name: 'Google Chrome',
-			value: 1,
-			safety:'37%',
-			body:'Google Chrome collectes X number of individual data per year. Google probably knows more about you than even Facebook does, thanks to the things you tell it when you type queries into its search engine. Though that’s just the tip of how it tracks you. It also has its tracking infrastructure embedded on three-quarters of the top million websites. So chances are it’s following what you’re browsing online.'},
-			{name: 'DuckDuckGo',
-			value: 2,
-			safety:'73%',
-			body:'Something something'},
-			{name: 'DuckDuckGo',
-			value: 3,
-			safety:1,
-			body:'duckduckgo is so freaking awesome. omg.',},
-			{name: 'something1',
-			value: 4,
-			safety:1,
-			body:'maybe switch to duckduckgo',},
-			{name: 'something2',
-			value: 5,
-			safety:1,
-			body:'pooooooor decisions  hahahahah',},
-			
-		]
-		
-		$: q = 0;
-		let section =0;
-		function stepUp() {
-			q++;
-			q1Steps[q].classn = 'complete';
-			if (q == 2 ){
-				//isActive = true;
-			}
-			if (q > 2) {
-				//complete();
-			}
-		}
-		$: headline = q1Steps[q].h2;
-		$: body = q1Steps[q].copy;
-		$: fraction = q1Steps[q].d;
+</script>
+<svelte:head>
+	<title>Https Everywhere</title>
+</svelte:head>
+<Trans>
+{#if $step == 0}
+<section>
+	<h2>Https Everywhere</h2> 
+		<p>When you connect to a website with regular HTTP, your browser looks up the IP address that corresponds to the website, connects to that IP address, and assumes it’s connected to the correct web server. Data is sent over the connection in clear text. An eavesdropper on a Wi-Fi network, your internet service provider, or government intelligence agencies, can see the web pages you’re visiting and the data you’re transferring back and forth.
+		</p>
+		<p>Many sites on the web offer some limited support for encryption over HTTPS, but make it difficult to use. For instance, they may default to unencrypted HTTP, or fill encrypted pages with links that go back to the unencrypted site. The HTTPS Everywhere extension fixes these problems by using clever technology make every site useto rewrite requests to these sites to HTTPS.With HTTPS, people running the network between your device and the server hosting the website you’re browsing, or other prying eyes, can’t see your requests and your internet traffic. 
+		</p>
+		<Next>Continue to next page</Next>
+</section>
+{:else}
+<section>
+	<h2>Download HTTPS Everywhere extension</h2>
+	<p>Informaiton about this extension. What it does exactly. How it works. What benefits users get from having this extension. The EFF has developed a browser extension that makes sure that you access all websites that offer HTTPS using… HTTPS.</p>
+</section>
+<div class="button-holder">
+	<Complete>
+		Download extension now
+	</Complete>
+	<Complete>
+		Already Have it
+	</Complete>
+	<Complete success={false}>
+		Don't want to download it
+	</Complete>
 	
-		let choice = 0;
-		function showResults(event) {
-			section =1
-		}
-		function showAlternatives(event) {
-			section=2;
-		}
-		
-	</script>
-	<svelte:head>
-		<title>Search Engine</title>
-	</svelte:head>
-<!-- <section id="progress">
-		<h3>Search Engine {fraction}</h3>
-		<ul>
-			{#each q1Steps as step}
-				<li class={step.classn} >{step.name}</li>
-			{/each}
-		</ul>
-	</section> -->
-	
-	
-	<Trans>
-				{#if section==0}
-		<h1>{headline}</h1>
-		<p>{body}</p> 
-		<form>
-				<label>
-					<input type="radio" bind:group={choice} value={0} selected>
-						{browserChoice[0].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={1}>
-						{browserChoice[1].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={2}>
-						{browserChoice[2].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={3}>
-						{browserChoice[3].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={4}>
-						{browserChoice[4].name}
-				</label>
-		</form>
-		<section id='next-skip'> 
-			<button on:click={showResults} class='btn-dark'>Submit</button>
-		</section>
-		{:else if section==1}
-			
-			<h2>{browserChoice[choice].name}</h2>
-			<p id='warning'>Safety level: {browserChoice[choice].safety}</p>
-			<p>{browserChoice[choice].body}</p>
-			<button class='btn-dark' on:click={showAlternatives}>Check Alternatives</button>
-		{:else}
-			<h1>Switch Search Engine</h1>
-			<h2>Here is a list of our recomended search engines</h2>
-			<ul>
-				<li>Option 1</li>
-				<li>Option 2</li>
-				<li>Option 3</li>
-				<li>Option 4</li>
-				<li>Option 5</li>
-			</ul>
-			<h3>How to change your default browser for windows</h3> 
-			<h3>how to change your defualt browser for mac</h3> 
-		<div class="button-holder">
-			<Complete>
-        		Yes, I did
-    		</Complete>
-			<button class='btn-dark'>No, I didn't</button>
-		</div>
-		{/if}
-
-	</Trans>
-		
-		
-	<style>
-		main{
-			flex-flow: row wrap;
-			justify-content: flex-start;
-		}
-	   .quiz-holder {
-		   display: block;
-		   width: 65vw; /* 72.5 originaly */
-		   left: 20vw;
-		   height: 100vh;
-		   padding: 20px 50px;
-	   }
-	   #warning {
-			color: red;
-			font-size: 24px;
-	   }
-	   .step{
-			margin-bottom: 55px;
-	   }
-	   #progress {
-		   margin-top: 50px;
-	   }
-	   ul {
-		   padding-inline-start: 15px;
-	   }
-	   li {
-		   margin: 30px 0px;
-	   }
-	   .incomplete {
-			color: #a0a0a0;
-			list-style-type: circle;
-		}
-		.complete {
-			list-style-type: disc;
-		}
-		.Side-headline {
-			font-size: 24px;
-			font-weight: 700;
-		}
-		.btn-dark {
-			color:white;
-			background: #0F2033;
-			border-radius: 6px;
-			width: 30%;
-			text-align: center;
-			padding: 5px 10px;
-		}
-		button {
-			border: none;
-			padding: 5px 10px;
-		}
-		form {
-			display: flex;
-			flex-flow: column;
-		}
-		label {
-			padding: 10px;
-		}
-		.button-holder {
-			width: 27vw;
-			display: flex;
-			flex-flow: column nowrap;
-		}button {
-			padding: 10px 20px;
-			margin: 10px;
-			border: black solid 0px;
-			border-radius: 8px;
-		}
-	</style>
+</div>
+{/if}
+<Back/>
+</Trans>
+<style>
+   .button-holder {
+	width: 27vw;
+	display: flex;
+    flex-flow: column nowrap;
+   }
+   button {
+	   padding: 10px 20px;
+	   margin: 10px;
+	   border: black solid 0px;
+	   border-radius: 8px;
+   }
+</style>

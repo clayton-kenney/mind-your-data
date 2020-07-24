@@ -3,40 +3,18 @@
 	const dispatch = createEventDispatcher();
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte'
+    import Next from '../../components/Next.svelte'
+	import { count, step, quizSteps } from '../../store.js'
+	import Back from '../../components/Back.svelte'
 
-	 //sets aside icon to in progress via store
-	 import { quizSteps } from '../../store.js'
-	 import { count } from '../../store.js'
-
+	//sets aside icon to in progress via store
     onMount(async() => {$quizSteps[$count].status = 1});
-	//confirm comletion of quiz to master quiz component
-	function complete() {
-		dispatch('message', {
-			question: 2, //Q-1 becaue of array
-			complete: 'true'
-		});
-	}
-	function incomplete() {
-		dispatch('message', {
-			question: 2, //Q-1 becaue of array
-			complete: 'false'
-		});
-	}
-	let q = 0;
-	function advance() {
-		q++;
-		console.log(q);
-	}
-	function advanceTwo() {
-		q+=2;
-		console.log(q);
-	}
 </script>
 <svelte:head>
 	<title>Tracker blocker</title>
 </svelte:head>
 <Trans>
-{#if q==0}
+{#if $step==0}
 <section>
 	<h2>Tracker blocker</h2> 
 	<p>Are you being tracked on the web? Almost definitely.</p>
@@ -46,7 +24,7 @@
 	<p>If you change the site (eg from the front page to the news area) the tracker recognize you and combines the data - "user ABC stayed 33s in the front page and switched to the news area and stayed there for 3min". For webmaster powerful data because they know how important their front page is and where they have too change something. 
 	</p>
 	<p>Trackers are installed on many websites to log your behavior. Each time you open a website with a tracker (of course every sub-site of a website too). Trackers are included in the website code and are activated each time you visit the site.</p>
-	<button on:click={advance}>Continue</button>
+	<Next>Continue</Next>
 </section>
 {:else}
 <section>
@@ -59,21 +37,16 @@
 		<Complete>
 			Already Have it
 		</Complete>
-		<button on:click={incomplete}>Don't want to download it</button>
+		<Complete success={false}>Don't want to download it</Complete>
 	</div>
 </section>
 {/if}
+<Back/>
 </Trans>
 <style>
    .button-holder {
 	width: 27vw;
 	display: flex;
     flex-flow: column nowrap;
-   }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
    }
 </style>
