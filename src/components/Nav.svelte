@@ -2,6 +2,7 @@
 	export let segment;
 </script>
 
+
 <style>
 	nav {
 		display: flex;

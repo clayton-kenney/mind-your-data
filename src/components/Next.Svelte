@@ -1,12 +1,10 @@
 <script>
     import { step } from '../store.js'
     export let q =1;
-    function increase() {
-        step.update(n => n+= q)
+   const increase = () => step.update(n => n+= q);
         
-    }
 </script>
-<button on:click={() => increase()}>
+<button on:click={increase()}>
     <slot>
 
     </slot>
@@ -20,4 +18,3 @@
 			border-radius: 8px;
     }
 </style>
-
