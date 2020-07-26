@@ -1,5 +1,6 @@
 <script>
-import { count, step, quizSteps } from '../store.js'
+import { count, step, quizSteps, progress } from '../store.js'
+let p = 7.6;
 function goBack() {
     if($count >= 1 && $step == 0) {
         alert('Are you sure you want to go back?')
@@ -16,7 +17,9 @@ function goBack() {
 }
 </script>
 {#if $count >= 1}
-<button on:click={() => goBack()}>
+<button on:click={() => {goBack()
+    progress.update(n => n-=p)
+}}>
     Back
 </button>
 {/if}

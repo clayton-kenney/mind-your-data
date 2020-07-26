@@ -8,7 +8,8 @@
 	import Back from '../../components/Back.svelte'
 
 	//sets aside icon to in progress via store
-    onMount(async() => {$quizSteps[$count].status = 1});
+	onMount(async() => {$quizSteps[$count].status = 1;
+		});
 
 </script>
 <svelte:head>

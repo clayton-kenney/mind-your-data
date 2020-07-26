@@ -1,18 +1,20 @@
 <script>
     //total time for countdown
 import { tweened } from 'svelte/motion';
+import { cubicOut } from 'svelte/easing';
 import Check from './Check.svelte';
-import { quizSteps } from '../store.js';
+import { quizSteps, timerActive, progress } from '../store.js';
 //console.log($quizSteps);
 let start= 30 * 60;
 let timer = tweened(start);
   setInterval(() => {
-    if ($timer > 0) $timer--;
+    if ($timer > 0 && $timerActive) $timer--;
   }, 1000);
 
   $: minutes = Math.floor($timer / 60);
   $: minname = minutes > 1 ? "mins" : "min";
-  $: seconds = Math.floor($timer - minutes * 60)
+  $: seconds = Math.floor($timer - minutes * 60).toLocaleString('en', {minimumIntegerDigits:2,useGrouping:false})
+
 
 </script>
 <aside>
@@ -26,8 +28,13 @@ let timer = tweened(start);
     </section>
     <section class='done'>
         {#each $quizSteps as challenge}
+            {#if challenge.type != 'checkpoint'}
         <Check active={challenge.status}/> 
+            {/if}
         {/each}    
+    </section>
+    <progress value={$progress} max="100"></progress>
+
 </aside>
 <style>
     aside {
@@ -42,6 +49,8 @@ let timer = tweened(start);
         border: 0px;
         margin: 12px 0px 40px 20px;
         padding: 0vh 7vh;
+        position: sticky;
+        top: 50px;
     }
     #timer {
         display: flex;
@@ -91,10 +100,15 @@ let timer = tweened(start);
         height:3px;
         margin: 3px;
     }
-    .active {
-        
-    }
-    .inactive {
+    progress{
+        -webkit-appearance: progress-bar;
+        display: block;
+        width: 290px;
+        position: relative;
+        bottom: 59px;
+        height: 6px;
+        z-index: -1;
+        background: #73EF7B;
     }
 </style>
 <!--

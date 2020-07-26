@@ -1,8 +1,10 @@
 <script>
-    import { step } from '../store.js'
+    import { step, progress } from '../store.js'
     export let q =1;
-   const increase = () => step.update(n => n+= q);
-        
+    export let p = 7.6;
+   const increase = () => {
+       step.update(n => n+= q);
+      progress.update(n => n += p)};
 </script>
 <button on:click={increase}>
     <slot>

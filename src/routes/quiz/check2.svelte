@@ -8,32 +8,12 @@
 	import Back from '../../components/Back.svelte'
 
 	 //sets aside icon to in progress via store
-	 import { quizSteps } from '../../store.js'
-	 import { count } from '../../store.js'
+	 import { quizSteps, count, timerActive } from '../../store.js'
 
-    onMount(async() => {$quizSteps[$count].status = 1});
-	//confirm comletion of quiz to master quiz component
-	function complete() {
-		dispatch('message', {
-			question: 7, //Q-1 becaue of array
-			complete: 'true'
-		});
-	}
-	function incomplete() {
-		dispatch('message', {
-			question: 7, //Q-1 becaue of array
-			complete: 'false'
-		});
-	}
-	let q = 0;
-	function advance() {
-		q++;
-		console.log(q);
-	}
-	function advanceTwo() {
-		q+=2;
-		console.log(q);
-	}
+	onMount(async() => {$quizSteps[$count].status = 1;
+		timerActive.set(!$timerActive)});
+	onDestroy(() => timerActive.set(!$timerActive))
+
 </script>
 <svelte:head>
 	<title>Surveillance Capitalism How did this happen?</title>

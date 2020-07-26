@@ -3,11 +3,13 @@
     import Trans from '../../components/TransHelp.svelte';
     import Complete from '../../components/complete.svelte'
 	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
-    import { count, step, quizSteps } from '../../store.js'
+    import { count, step, quizSteps, timerActive, progress} from '../../store.js'
     import Back from '../../components/Back.svelte'
 
     //sets aside icon to in progress via store
-    onMount(async() => {$quizSteps[$count].status = 1});
+    onMount(async() => {
+        $quizSteps[$count].status = 1;
+        timerActive.set(!$timerActive)});
     //Start Video on update
     let video;
 	afterUpdate(async() => {
@@ -27,8 +29,8 @@
         function stopStreamedVideo(video) { 
             const stream = video.srcObject;
             const tracks = stream.getTracks();
-                tracks[0].stop();
-                
+                tracks.forEach(t => t.stop());
+                stream = null;
                 }
                 //video.srcObject = null;
             });
@@ -42,27 +44,27 @@
 <section>
 	<h2>Is your Webcam Covered?</h2> 
     <p>It’s likely your computer already has a built-in camera, and it’s possible for that camera to be used to spy on you.  <br>  If your webcam for whatever reason has been hacked, the person on the other side can take pictures and video of anything or anyone. No, this isn’t just paranoia–a recent survey conducted by HP found that 10% in the U.S. either know someone whose webcam was hacked or have had their own webcam hacked.</p>
-    <Btn>Continue</Btn>
+    <Btn >Continue</Btn>
 </section>
 {:else if $step==1}
 <section>
 	<h2>Cover Your Webcam</h2>
 	<p>Cover your webcam. You can get fancy removable stickers for this purpose, but for now, find a sticky note or piece of masking tape and cover your webcam when it’s not in use (like right now). </p>
 	<div class="button-holder">
-        <Btn>It's covered</Btn>
-        <Complete success={false}>No Thanks, It's a hassle</Complete> 
+        <Btn p={6.25}>It's covered</Btn>
+        <Complete success={false} p={6.25}>No Thanks, It's a hassle</Complete> 
 	</div>
 </section>
 {:else if $step==2}
    <div class="video-holder"><video autoplay="true" id="videoElement"></video></div>
     <p id="alert">Cover your webcam</p>
     <p id="not-covered">You haven’t covered your webcame or did not do it properly. Please cover your webcam completely to proceed to the next step.</p>
-    <Complete>
+    <Complete p={6.25}>
         Onwards to the next challenge
     </Complete>
 {:else}
     <video autoplay="true" id="videoElement"></video>
-    <Complete>
+    <Complete p={6.25}>
         Onwards to the next challenge
     </Complete>
 {/if}

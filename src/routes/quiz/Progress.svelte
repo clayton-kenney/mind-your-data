@@ -1,15 +1,5 @@
 <script>
 let completed;
-//pass to events to quiz components
-import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
-    $: num = 0;
-	function sayHello() {
-        num++;
-		dispatch('message', {
-			number: num
-		});
-	}
 
 </script>
 <style>

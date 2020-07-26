@@ -1,18 +1,20 @@
 <script>
-import { count, step, quizSteps } from '../store.js'
+import { count, step, quizSteps, progress } from '../store.js'
 export let success = true;
-
+export let p = 7.6;
 //sets current icon for sidebar
 function increment() {
         $quizSteps[$count].complete = true;
         $quizSteps[$count].status = 2;
         count.update(n => n + 1)
+        progress.update(n => n+=p)
         step.set(0);
 }
 function incomplete() {
         $quizSteps[$count].complete = false;
         $quizSteps[$count].status = 0;
         count.update(n => n + 1)
+        progress.update(n => n+=p)
         step.set(0);
 }
 </script>

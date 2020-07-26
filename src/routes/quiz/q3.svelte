@@ -9,7 +9,8 @@
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
 
-	onMount(async() => {$quizSteps[$count].status = 1});
+	onMount(async() => {$quizSteps[$count].status = 1;
+		});
 	
 
 	const dispatch = createEventDispatcher();

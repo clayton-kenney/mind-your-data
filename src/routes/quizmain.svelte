@@ -12,10 +12,9 @@
  import Checkpoint2 from './quiz/check2.svelte'
  import Checkpoint3 from './quiz/check3.svelte'
  import Completion from '../components/Completion.svelte'
- import { createEventDispatcher } from 'svelte';
+ import { createEventDispatcher, afterUpdate } from 'svelte';
 import { slide } from 'svelte/transition';
 import { quintOut, quintIn } from 'svelte/easing';
-
 import { count } from '../store.js'
 
  const quizSteps =  [
@@ -33,13 +32,14 @@ import { count } from '../store.js'
 ]
 
 $:quizNum = $count;
+
 function handleMessage(event) {
               
               //quizNum++;
               //quizSteps[Object.values(event.detail[0])].complete = object.values(event.detail[1])
-              let status = Object.values(event.detail);
-              let location = status[0];
-              quizSteps[location].complete = status[1];
+              //let status = Object.values(event.detail);
+              //let location = status[0];
+              //quizSteps[location].complete = status[1];
               //console.log(quizSteps[location]);
 	}
 </script>
@@ -79,6 +79,7 @@ function handleMessage(event) {
               margin: 12px 22px 40px 20px;
               padding: 9.3vh 5vw 0vh 9.3vh;
               color: #FFFFFF;
+    
               /*margin-top: -50px;
               margin-left: 21vw;
               margin-right: 50px;
