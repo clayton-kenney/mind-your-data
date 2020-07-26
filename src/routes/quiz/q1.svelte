@@ -25,7 +25,7 @@
 		}
 })
 //stop video function on end of component   
-    afterUpdate(async() => { 
+   onDestroy(async() => { 
         function stopStreamedVideo(video) { 
             const stream = video.srcObject;
             const tracks = stream.getTracks();
