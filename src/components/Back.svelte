@@ -17,19 +17,27 @@ function goBack() {
 }
 </script>
 {#if $count >= 1}
-<button on:click={() => {goBack()
+<div id="back" on:click={() => {goBack()
     progress.update(n => n-=p)
 }}>
-    Back
-</button>
+<svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 15.885L4.20108 9L11 2.115L8.90688 0L0 9L8.90688 18L11 15.885Z" fill="#757575"/>
+    </svg> Back
+</div>
 {/if}
 <style>
-    button {
-            
-            padding: 10px 20px;
-			margin: 80px 10px 10px 10px;
-			border: black solid 0px;
-			border-radius: 8px;
-           
+    #back {
+        display: flex;
+        position: inherit;
+        bottom: 72px;
+        flex-flow: row nowrap;
+        align-items: center;
+        color: #757575;
+        margin: 20px 0px;
+
+    }
+    svg {
+        margin-right: 20px;
+        fill: #757575;
     }
 </style>

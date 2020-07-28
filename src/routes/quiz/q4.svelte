@@ -24,7 +24,7 @@
 	<p>Well, not that kind of cookie.</p>
 	<p>Cookies are small files that are stored on your computer and carry information from one session on a website to another. Usually, the website that sets a cookie is the only one that reads the cookie. However, third-party cookies can be set by one website and read by another. Third-party cookies are used by servers that deliver advertisements and those annoying pop-up and pop-under ads.</p>
 	<div class="button-holder">
-		<Btn>Continue</Btn>
+		<Btn yellow={true}>Continue</Btn>
 	</div>
 </section>
 {:else}

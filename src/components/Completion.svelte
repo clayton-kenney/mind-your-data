@@ -21,8 +21,8 @@ let bg2 = false;
 let bg3 = false;
 
 afterUpdate(() =>{
-    if($quizSteps[$count].id > 2){bg1 = false; bg2 = true;}
-{if($quizSteps[$count].id > 7){bg2= false; bg3= true;}
+    if($count > 3){bg1 = false; bg2 = true;}
+{if( $count  > 7){bg2= false; bg3= true;}
 }})
 </script>
 <aside class:bg1 class:bg2 class:bg3>

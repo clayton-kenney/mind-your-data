@@ -2,6 +2,9 @@
 import { count, step, quizSteps, progress } from '../store.js'
 export let success = true;
 export let p = 7.6;
+export let green = false;
+export let yellow = false;
+export let red = false;
 //sets current icon for sidebar
 function increment() {
         $quizSteps[$count].complete = true;
@@ -19,13 +22,13 @@ function incomplete() {
 }
 </script>
 {#if success}
-    <button on:click={increment}>
+    <button on:click={increment} class:green class:yellow class:red>
         <slot>
 
         </slot>
     </button>
 {:else}
-    <button on:click={incomplete}>
+    <button on:click={incomplete} class:green class:yellow class:red>
         <slot>
 
         </slot>
@@ -38,6 +41,18 @@ function incomplete() {
 			margin: 10px;
 			border: black solid 0px;
 			border-radius: 8px;
+    }
+    .green {
+        background-color: #73ef7b;
+        color: #2C3C4E;
+    }
+    .yellow {
+        background-color: #F1C330;
+        color: #2C3C4E;
+    }
+    .red {
+        background-color: #E74E45;
+        color: #FFFFFF;
     }
 </style>
 

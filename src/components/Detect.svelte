@@ -83,6 +83,7 @@ if (isOpera){
     strong{
         font-weight: 600;
         font-size: 22px;
+        text-decoration: underline;
     }
     
 </style>

@@ -24,7 +24,9 @@
 	<h2>Tracker blocker: Privacy Badger</h2> 
 	<p>Are you being tracked on the web? Almost definitely. 
 		Trackers are installed on many websites to log your behavior. While cookies are the little identifiers for websites to recognize you through multiple visits, trackers use those cookies to analyze your behavior and build their valuable user profiles. Trackers will log the site you visit, the date and time, and your computer settings (more powerful trackers can even watch your mouse movement) all of this without your consent.</p>
-	<Btn>Continue</Btn>
+		<div class="button-holder">
+			<Btn yellow={true}>Continue</Btn>
+		</div>
 </section>
 {:else}
 <section>

@@ -7,7 +7,7 @@ body {
 	background-color: #303538;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
 	font-family: 'Lato', sans-serif;
 	margin: 0 0 0.5em 0;
 	font-weight: 400;
@@ -28,7 +28,9 @@ a {
 body{
 	font-weight: 400;
 }
-
+a, button {
+	font-family: 'Anonymous Pro', monospace;
+}
 code {
 	font-family: menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);

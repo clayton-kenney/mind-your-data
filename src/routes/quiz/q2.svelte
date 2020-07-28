@@ -27,14 +27,15 @@
 	<p>The problem is that the data transferred by HTTP is not encrypted, and it can be intercepted by third parties to view the data being passed between the two systems. This can be addressed by using a secure version called HTTPS, where the "S" stands for secure.</p>
 	<p>Using  HTTPS  is especially important for sites that transmit sensitive data, like ecommerce sites that accept online card payments, or login areas that require users to enter their credentials.</p>
 
-	
-		<Btn>Continue</Btn>
+	<div class="button-holder">
+		<Btn green={true}>Continue</Btn>
+	</div>
 </section>
 {:else}
 <section>
 	<h2>Download HTTPS Everywhere extension</h2>
 	<p>Luckily, the Electronic Frontier Foundation has created a smart extension that rewrites website requests to HTTPS. With HTTPS, the internet traffic between your device and the server hosting your website can’t be seen by prying eyes.</p>
-</section>
+
 <div class="button-holder">
 	<a href='https://www.eff.org/https-everywhere' target="_blank"><button on:click|once='{disable}' disabled='{disabled}'>Download extension now
 	</button></a>
@@ -49,7 +50,8 @@
 		No Thanks
 	</Complete>
 	
-</div>
+	</div>
+</section>
 {/if}
 <Back/>
 </Trans>
