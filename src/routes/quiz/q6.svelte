@@ -9,7 +9,7 @@
 
 	//sets aside icon to in progress via store
     onMount(async() => {$quizSteps[$count].status = 1});
-
+	let current = 'initial';
 </script>
 <svelte:head>
 	<title>Domain Name Service</title>
@@ -17,18 +17,30 @@
 <Trans>
 {#if $step==0}
 <section>
-	<h2>Domain Name Service</h2> 
-	<p>When you type an address in the address bar (such as mindyourdata.org), your device asks a Domain Name Server to translate that address into an IP address (a unique combination of numbers and dots). By default, your ISP or your mobile carrier runs a DNS for their users. It means that they can see all your web history. Big telecom companies are going to take advantage of that to ramp up their advertising efforts. By default, your DNS query is also unencrypted and can be intercepted by people running the network. Some governments also ask telecom companies to block some websites on their DNS servers — some countries block Facebook for censorship reasons, others block The Pirate Bay for online piracy reasons.</p>
+	<h2>Domain Name Server (DNS): Quad9
+	</h2> 
+	<p>Everything on the Internet, including websites, live at a numerical IP address. The Domain Name System, or DNS, translates these numerical IP addresses into human-readable domain names that we all know and remember (like mindyourdata.org). If your DNS settings are not working correctly, or you’re still using defaults, you may be at risk for cybercrime and performance issues. And, the websites you visit may be collected and shared by whatever entity owns the DNS service.</p>
 	<Btn>Continue</Btn>
 </section>
 {:else}
 <section>
-	<h2>Configure each of your devices to use another public DNS</h2>
-	<p>You can configure each of your devices to use another public DNS. But don’t use Google’s public DNS! Remember, it’s an ad company, so they really want to see your web history. Both Quad9 and Cloudflare’s 1.1.1.1 have strong privacy policies. But Quad9 is a not-for-profit organization, so it’s a little easier to trust them.</p>
+	<h2>Setup Quad9</h2>
+	<p>Quad9 is a free, not-for-profit security solution that uses the DNS to protect your system against the most common cyber threats. Not only does it  preserve and protect your privacy, it will also improve your system’s performance! It’s like a painless immunization for your computer and devices.</p>
+	<div class:active="{current === 'mac'}" on:click="{() => current = 'mac'}">
+		<p>Setup Quad9 for Mac:</p>
+		{#if current==='mac'}
+		<iframe title="Setup Quad9 for mac" width="560" height="315" src="https://www.youtube-nocookie.com/embed/NM4AdfEnAmY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		{/if}
+	</div>
+		<hr>
+ 	<div class:active="{current === 'pc'}" on:click="{() => current = 'pc'}">
+		 <p>Setup Quad9 for PC:<p>
+		 {#if current==='pc'}
+		 <iframe title="Setup Quad9 for Windows" width="560" height="315" src="https://www.youtube-nocookie.com/embed/aujUl3yt6nM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {/if}
+    </div>
 	<div class="button-holder">
-		<Complete>Link1</Complete>
-		<Complete>Link2</Complete>
-		<Complete>Already did it</Complete>
+		<Complete>Setup Complete</Complete>
 		<Complete success={false}>Don't care, let then snoop</Complete>
 	</div>
 </section>

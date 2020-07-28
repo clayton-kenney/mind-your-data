@@ -11,199 +11,67 @@
 
 	onMount(async() => {$quizSteps[$count].status = 1;
 		});
-	
-
-	const dispatch = createEventDispatcher();
-
-		let q1Steps = [
-		{ stepNum: '1', 
-		h2: 'What Search Engine do you use?', 
-		name: 'Introduction', 
-		classn: 'complete',
-		d: '1 / 3',
-		browsers: ['Google Chrome', 'DuckDuckGo', 'Bing', 'Something', 'Something'],
-		copy: 'Did you know everything time you look up something using search engine, you are giving your information to thousands of 3rd party advertisers? Vast amount of your data has been taken from you without a single consent only to manipulate your purchase habit and long-term behavior. In this exercise, we will walk through with you how to avoid....'}
-		]
-		let browserChoice = [
-			{name: 'Google Chrome',
-			value: 1,
-			safety:'37%',
-			body:'Google Chrome collectes X number of individual data per year. Google probably knows more about you than even Facebook does, thanks to the things you tell it when you type queries into its search engine. Though that’s just the tip of how it tracks you. It also has its tracking infrastructure embedded on three-quarters of the top million websites. So chances are it’s following what you’re browsing online.'},
-			{name: 'DuckDuckGo',
-			value: 2,
-			safety:'73%',
-			body:'Something something'},
-			{name: 'DuckDuckGo',
-			value: 3,
-			safety:1,
-			body:'duckduckgo is so freaking awesome. omg.',},
-			{name: 'something1',
-			value: 4,
-			safety:1,
-			body:'maybe switch to duckduckgo',},
-			{name: 'something2',
-			value: 5,
-			safety:1,
-			body:'pooooooor decisions  hahahahah',},
-			
-		]
-		
-		$: q = 0;
-		let section =0;
-		function stepUp() {
-			q++;
-			q1Steps[q].classn = 'complete';
-			if (q == 2 ){
-				//isActive = true;
-			}
-			if (q > 2) {
-				//complete();
-			}
-		}
-		$: headline = q1Steps[q].h2;
-		$: body = q1Steps[q].copy;
-		$: fraction = q1Steps[q].d;
-	
-		let choice = 0;
-		function showResults(event) {
-			section =1
-		}
-		function showAlternatives(event) {
-			section=2;
-		}
-		
+	let current = 'initial';
 	</script>
 	<svelte:head>
 		<title>Search Engine</title>
 	</svelte:head>
 	
 	<Trans>
+		<section>
 	{#if $step==0} 
-		<h1>{headline}</h1>
-		<p>{body}</p> 
-		<form>
-				<label>
-					<input type="radio" bind:group={choice} value={0} selected>
-						{browserChoice[0].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={1}>
-						{browserChoice[1].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={2}>
-						{browserChoice[2].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={3}>
-						{browserChoice[3].name}
-				</label>
-				<label>
-					<input type="radio" bind:group={choice} value={4}>
-						{browserChoice[4].name}
-				</label>
-		</form>
-		<section id='next-skip'> 
-			<Btn type=Submit> Submit</Btn>
-		</section>
-		{:else if $step==1}
+		<h1>Change Your Search</h1>
+		<p>How are you searching for information? </p>
+		<p>Using a search engine can disclose highly personal information about you, such as medical issues, employment status, financial information, political beliefs, and other private details. This data, of course, can be collected, stored, and linked to your data profile (and your real identity). The only way to effectively “opt out” is to keep your data safe and out of the hands of the data collectors.</p>
+	<Btn> continue</Btn>
+	{:else}
+	
+			<h1>Use alternative search engine</h1>
+			<p>Protect your privacy while you search using an alternative search engine when you need to find something on the internet. This isn’t as hard asyou might think as there are some competitive alternatives now that don’t collect or share your personal information — we like DuckDuckGo as an extension for searches, but if you’d like to search for other search engines <a href="https://restoreprivacy.com/private-search-engine/">here are a few options</a>.
 			
-			<h2>{browserChoice[choice].name}</h2>
-			<p id='warning'>Safety level: {browserChoice[choice].safety}</p>
-			<p>{browserChoice[choice].body}</p>
-			<!--<button class='btn-dark' on:click={showAlternatives}>Check Alternatives</button> -->
-			<Btn type=Submit>Check Alternatives</Btn>
-		{:else}
-			<h1>Switch Search Engine</h1>
-			<h2>Here is a list of our recomended search engines</h2>
-			<ul>
-				<li>Option 1</li>
-				<li>Option 2</li>
-				<li>Option 3</li>
-				<li>Option 4</li>
-				<li>Option 5</li>
-			</ul>
-			<h3>How to change your default browser for windows</h3> 
-			<h3>how to change your defualt browser for mac</h3> 
+		<div class:active="{current === 'mac'}" on:click="{() => current = 'mac'}">
+			<p>Change your defualt search engine for Mac</p>
+			{#if current==='mac'}
+				<ol>
+					<li>Choose System Preferences from the Apple () menu.</li>
+					<li>Click General</li>
+					<li>Choose your web browser from the ”Default web browser” pop-up menu.</li>
+				</ol>
+			{/if}
+		</div>
+		<hr>
+ 		<div class:active="{current === 'pc'}" on:click="{() => current = 'pc'}">
+			<p>Chance your default search engine for Windows<p>
+			{#if current==='pc'}
+			<ol>
+					<li>Select the Start  button, and then type Default apps.</li>
+					<li>In the search results, select Default apps.</li>
+					<li>Under Web browser, select the browser currently listed, and then select Microsoft Edge or another browser.</li>
+			</ol>
+    		{/if}
+		</div>
+		<hr>
+		<div>
+		   <p><a href="https://chrome.google.com/webstore/detail/duckduckgo-privacy-essent/bkdgflcldnnnapblkhphbgpggdiikppg" target="_blank">Or you can download the DuckDuckGo Extension here</a></p>
+		</div>
 		<div class="button-holder">
 			<Complete>
-        		Yes, I did
+        		Search Engine Changed
 			</Complete>
 			<Complete success={false}>
-        		No, I didn't
+        		No Thanks
     		</Complete>
 		</div>
 		{/if}
+	</section>
 		<Back/>
 	</Trans>
 		
 		
 	<style>
-		main{
-			flex-flow: row wrap;
-			justify-content: flex-start;
-		}
-	   .quiz-holder {
-		   display: block;
-		   width: 65vw; /* 72.5 originaly */
-		   left: 20vw;
-		   height: 100vh;
-		   padding: 20px 50px;
-	   }
-	   #warning {
-			color: red;
-			font-size: 24px;
-	   }
-	   .step{
-			margin-bottom: 55px;
-	   }
-	   #progress {
-		   margin-top: 50px;
-	   }
-	   ul {
-		   padding-inline-start: 15px;
-	   }
-	   li {
-		   margin: 30px 0px;
-	   }
-	   .incomplete {
-			color: #a0a0a0;
-			list-style-type: circle;
-		}
-		.complete {
-			list-style-type: disc;
-		}
-		.Side-headline {
-			font-size: 24px;
-			font-weight: 700;
-		}
-		.btn-dark {
-			color:white;
-			background: #0F2033;
-			border-radius: 6px;
-			width: 30%;
-			text-align: center;
-			padding: 5px 10px;
-		}
-		button {
-			border: none;
-			padding: 5px 10px;
-		}
-		form {
-			display: flex;
-			flex-flow: column;
-		}
-		label {
-			padding: 10px;
-		}
 		.button-holder {
 			width: 27vw;
 			display: flex;
 			flex-flow: column nowrap;
-		}button {
-			padding: 10px 20px;
-			margin: 10px;
-			border: black solid 0px;
-			border-radius: 8px;
 		}
 	</style>

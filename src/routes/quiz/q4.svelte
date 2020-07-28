@@ -19,18 +19,19 @@
 <Trans>
 {#if $step==0}
 <section>
-	<h2>Privacy settings: Want a cookie?</h2> 
-	<p>Well, not that kind of cookie. Many websites allow third party cookies which are designed to hold data specific to a particular user and website. </p>
-	<p>You’re just supposed to trust the willingness and ability of any organization to put your privacy over their need to meet their goals, which usually entail profits. Yeah. Sure.</p>
+	<h1>Privacy settings - 3rd party cookies</h1>
+	<h2>Want some cookies?</h2>
+	<p>Well, not that kind of cookie.</p>
+	<p>Cookies are small files that are stored on your computer and carry information from one session on a website to another. Usually, the website that sets a cookie is the only one that reads the cookie. However, third-party cookies can be set by one website and read by another. Third-party cookies are used by servers that deliver advertisements and those annoying pop-up and pop-under ads.</p>
 	<div class="button-holder">
 		<Btn>Continue</Btn>
 	</div>
 </section>
 {:else}
 <section>
-	<h2>Give 3rd party cookies the boot</h2>
+	<h2>Give 3rd party cookies the boot by managing your browser settings:</h2>
 	<Detect />
-	<div class="button-holder">
+	<div class="button-holder" id='cookie-buttons'>
 		<h3>Did you disable tracking cookies?</h3>
 		<Complete>Yup</Complete>
 		<Complete success={false}>No, I don't mind them following me</Complete>
@@ -45,10 +46,7 @@
 	display: flex;
     flex-flow: column nowrap;
    }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
+   #cookie-buttons{
+	   margin: 40px 0px 0px 0px;
    }
 </style>

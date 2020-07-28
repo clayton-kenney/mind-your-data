@@ -1,7 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount, afterUpdate, onDestroy } from 'svelte';
 	import Detect from '../../components/Detect.svelte'
 	import Trans from '../../components/TransHelp.svelte';
 	import Complete from '../../components/complete.svelte'
@@ -19,14 +19,16 @@
 	<title>Surveillance Capitalism How did this happen?</title>
 </svelte:head>
 <Trans>
-    <h1>Surveillance Capitalism How did this happen?</h1>
-        <p>(I’m thinking spruced up version of the predictions market or surveillance capitalism flow)
-
-            It started with the internet, then google realized that they had a data surplus, and our behavior has value. Now they sell it to the highest bidder.
-            </p>
+    <h3>Checkpoint 2:</h3>
+        <h1>Surveillance Capitalism How did this happen?</h1>
+		<p><strong>Great!</strong>You are now on your way to claiming your privacy.</p>
+		<p>By now we hope you see how our private experiences are being harvested to be translated into behavioral data. This data is then processed and packaged as prediction products and sold to business customers with a commercial interest in knowing what we will do now, soon, and later. This is surveillance capitalism.</p>
+		<p><strong>How did this happen?</strong></p>
+		<p>It wasn’t that long ago that the internet entered our daily lives. We went online expecting empowerment, the democratization of knowledge, and help with real problems, but surveillance capitalism really was just too lucrative to resist. Google was the first to learn how to capture surplus behavioral data and use it to compute prediction products that they could sell to advertisers.
+		</p>
+		<p>This economic logic has now spread beyond the tech companies to new surveillance–based ecosystems in virtually every sector, from insurance to automobiles to health, education, finance, to every product described as “smart” and every service described as “personalized.” By now it’s very difficult to participate in society without interfacing with these same channels that are supply chains for surveillance capitalism’s data flows.</p>
     <div class="button-holder">
-		<Complete>Continue Challenge</Complete>
-        
+		<Complete>Start the next Challenge</Complete>
 	</div>
 	<Back/>
 </Trans>
@@ -37,10 +39,8 @@
 	display: flex;
     flex-flow: column nowrap;
    }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
+   strong {
+	   font-weight: 700;
+	   font-size: 22px;
    }
 </style>

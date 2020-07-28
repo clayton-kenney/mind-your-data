@@ -9,7 +9,12 @@
 
      //sets aside icon to in progress via store
 	onMount(async() => {$quizSteps[$count].status = 1});
-	
+	let disabled = false;
+	function disable() {
+		disabled= true;
+		console.log(disabled);
+	}
+	console.log(disabled);
 </script>
 <svelte:head>
 	<title>Https Everywhere</title>
@@ -17,27 +22,31 @@
 <Trans>
 {#if $step == 0}
 <section>
-	<h2>Https Everywhere</h2> 
-		<p>When you connect to a website with regular HTTP, your browser looks up the IP address that corresponds to the website, connects to that IP address, and assumes it’s connected to the correct web server. Data is sent over the connection in clear text. An eavesdropper on a Wi-Fi network, your internet service provider, or government intelligence agencies, can see the web pages you’re visiting and the data you’re transferring back and forth.
-		</p>
-		<p>Many sites on the web offer some limited support for encryption over HTTPS, but make it difficult to use. For instance, they may default to unencrypted HTTP, or fill encrypted pages with links that go back to the unencrypted site. The HTTPS Everywhere extension fixes these problems by using clever technology make every site useto rewrite requests to these sites to HTTPS.With HTTPS, people running the network between your device and the server hosting the website you’re browsing, or other prying eyes, can’t see your requests and your internet traffic. 
-		</p>
-		<Btn>Continue to next page</Btn>
+	<h2>Is your information encrypted and secure?</h2> 
+	<p>HTTP stands for hypertext transfer protocol. It’s a protocol that allows the transferring of data from a web server to a browser to view web pages.</p>
+	<p>The problem is that the data transferred by HTTP is not encrypted, and it can be intercepted by third parties to view the data being passed between the two systems. This can be addressed by using a secure version called HTTPS, where the "S" stands for secure.</p>
+	<p>Using  HTTPS  is especially important for sites that transmit sensitive data, like ecommerce sites that accept online card payments, or login areas that require users to enter their credentials.</p>
+
+	
+		<Btn>Continue</Btn>
 </section>
 {:else}
 <section>
 	<h2>Download HTTPS Everywhere extension</h2>
-	<p>Informaiton about this extension. What it does exactly. How it works. What benefits users get from having this extension. The EFF has developed a browser extension that makes sure that you access all websites that offer HTTPS using… HTTPS.</p>
+	<p>Luckily, the Electronic Frontier Foundation has created a smart extension that rewrites website requests to HTTPS. With HTTPS, the internet traffic between your device and the server hosting your website can’t be seen by prying eyes.</p>
 </section>
 <div class="button-holder">
+	<a href='https://www.eff.org/https-everywhere' target="_blank"><button on:click|once='{disable}' disabled='{disabled}'>Download extension now
+	</button></a>
 	<Complete>
-		Download extension now
-	</Complete>
-	<Complete>
+		{#if !disabled}
 		Already Have it
+		{:else}
+		Just downloaded it
+		{/if}
 	</Complete>
 	<Complete success={false}>
-		Don't want to download it
+		No Thanks
 	</Complete>
 	
 </div>
@@ -56,4 +65,8 @@
 	   border: black solid 0px;
 	   border-radius: 8px;
    }
+   a {
+	   text-decoration: none;
+   }
+   
 </style>

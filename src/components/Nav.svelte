@@ -10,7 +10,7 @@
 		height: 50px;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #3e4b59;
+		background-color: #303538;
 		/*border-bottom: 1px solid rgba(255,62,0,0.1);*/
 		font-weight: 300;
 		padding: 0 1em;
@@ -33,6 +33,7 @@
 		display: flex;
 		justify-content: flex-start;
 		height: 30px;
+		margin-left: 25px;
 	}
 	li{
 		display: flex;
@@ -64,12 +65,11 @@
 </style>
 
 <nav>
-	<a href='/home'><img  src='./MYDlogo_small.png' alt="Mind your Data logo"></a>
+	<a href='/home'><img  src='./MYDlogo_nav.png' alt="Mind your Data logo"></a>
 	<ul id="navigation">
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
 		<li><a aria-current="{segment === 'quiz' ? 'page' : undefined}" href="quiz">quiz</a></li>
 		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-		<li><a aria-current="{segment === 'resources' ? 'page' : undefined}" href="resources">resources</a></li>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->

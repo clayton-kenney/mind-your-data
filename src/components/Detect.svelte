@@ -43,36 +43,36 @@ if (isOpera){
     //browser+= " Blink"
 }
 </script>
-<p>{browser}</p>
+<p><strong>{browser}</strong></p>
 <p></p>
 {#if isOpera} 
 	Opera instructions
 {:else if isFirefox} 
-	<ul>
+	<ol>
         <li>In Firefox, click Tools > Options > Privacy</li>
-        <li>select "Use custom settings for history" in the drop-down menu at the top of the dialog box,</li> 
-        <li>check "Clear history when Firefox closes," </li>
-        <li>click the Settings button. </li>
-        <li>In the Settings for Clearing History dialog, check the options you want to erase on exit and click OK.</li>
-    </ul>
+        <li>Select "Use custom settings for history" in the drop-down menu at the top of the dialog box</li> 
+        <li>Check "Clear history when Firefox closes" </li>
+        <li>Click the Settings button </li>
+        <li>In the Settings for Clearing History dialog, check the options you want to erase on exit and click OK</li>
+    </ol>
 {:else if isSafari }
-    <ul>
-        <li>click the wrench icon in the top-right corner of the browser window and 
-        <li>choose Options > Under the Hood > Content Settings > Cookies.</li> 
-        <li>block all third-party cookies or all tracking cookies</li>
-        <li> Another option in this dialog lets you delete all cookies and other site data automatically when you close the browser.</li>
-    </ul>
+    <ol>
+        <li>Click the wrench icon in the top-right corner of the browser window and 
+        <li>Choose Options > Under the Hood > Content Settings > Cookies.</li> 
+        <li>Block all third-party cookies or all tracking cookies</li>
+        <li>Another option in this dialog lets you delete all cookies and other site data automatically when you close the browser.</li>
+    </ol>
 {:else if isIE} 
 	IE instructions
 {:else if isEdge }
 	Edge insructions
 {:else if isChrome }
-	<ul>
-        <li>click the wrench icon in the top-right corner of the browser window and 
-        <li>choose Options > Under the Hood > Content Settings > Cookies.</li> 
-        <li>block all third-party cookies or all tracking cookies</li>
-        <li> Another option in this dialog lets you delete all cookies and other site data automatically when you close the browser.</li>
-    </ul>
+	<ol>
+        <li>Click the wrench icon in the top-right corner of the browser window and 
+        <li>Choose Options > Under the Hood > Content Settings > Cookies.</li> 
+        <li>Block all third-party cookies or all tracking cookies</li>
+        <li>Another option in this dialog lets you delete all cookies and other site data automatically when you close the browser.</li>
+    </ol>
 {:else if isEdgeChromium}
 	Edge Chromium instructions
 {:else} 
@@ -80,6 +80,9 @@ if (isOpera){
 {/if}
 <p></p>
 <style>
-
+    strong{
+        font-weight: 600;
+        font-size: 22px;
+    }
     
 </style>

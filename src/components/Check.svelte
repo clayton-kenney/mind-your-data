@@ -16,6 +16,6 @@
 {/if}
  <style>
      .lock {
-         margin: 0px 10px;
+         margin: auto;
      }
  </style>

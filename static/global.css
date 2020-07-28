@@ -4,6 +4,7 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;
+	background-color: #303538;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,9 +18,12 @@ h1 {
 	font-size: 2em;
 	font-weight: 700;
 }
-
+main {
+	background-color: #303538;
+}
 a {
 	color: inherit;
+	text-decoration: none;
 }
 body{
 	font-weight: 400;
@@ -32,6 +36,11 @@ code {
 	background-color: #f0f0f0;
 	padding: 0.2em 0.4em;
 	border-radius: 2px;
+}
+.button-holder {
+	width: 27vw;
+	display: flex;
+    flex-flow: column nowrap;
 }
 
 @media (min-width: 400px) {

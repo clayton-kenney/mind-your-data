@@ -8,7 +8,12 @@
 	import Back from '../../components/Back.svelte'
 
 	//sets aside icon to in progress via store
-    onMount(async() => {$quizSteps[$count].status = 1});
+	onMount(async() => {$quizSteps[$count].status = 1});
+	let disabled = false;
+	function disable() {
+		disabled= true;
+		console.log(disabled);
+	}
 </script>
 <svelte:head>
 	<title>Tracker blocker</title>
@@ -16,28 +21,28 @@
 <Trans>
 {#if $step==0}
 <section>
-	<h2>Tracker blocker</h2> 
-	<p>Are you being tracked on the web? Almost definitely.</p>
-	<p>While cookies are the little identifiers for websites to recognize you through multiple visits, trackers use those cookies to recognize you and analyze your behavior. Trackers will log the site you visit, the date and time, and your computer settings (more powerful trackers can even watch your mouse movement). </p>
-	<p>A tracker like Google adsense is watching you over multiple sites to analyze your interests. You visited a car sale site yesterday? Today we show you Ads of cars. The chance is higher that you like the ad and click it instead of an ad with cats. (bad example... Everyone clicks cat ads...)
-	</p>
-	<p>If you change the site (eg from the front page to the news area) the tracker recognize you and combines the data - "user ABC stayed 33s in the front page and switched to the news area and stayed there for 3min". For webmaster powerful data because they know how important their front page is and where they have too change something. 
-	</p>
-	<p>Trackers are installed on many websites to log your behavior. Each time you open a website with a tracker (of course every sub-site of a website too). Trackers are included in the website code and are activated each time you visit the site.</p>
+	<h2>Tracker blocker: Privacy Badger</h2> 
+	<p>Are you being tracked on the web? Almost definitely. 
+		Trackers are installed on many websites to log your behavior. While cookies are the little identifiers for websites to recognize you through multiple visits, trackers use those cookies to analyze your behavior and build their valuable user profiles. Trackers will log the site you visit, the date and time, and your computer settings (more powerful trackers can even watch your mouse movement) all of this without your consent.</p>
 	<Btn>Continue</Btn>
 </section>
 {:else}
 <section>
-	<h2>Download Privacy Badger extention</h2>
-	<p>When you view a webpage, that page will often be made up of content from many different sources. Privacy Badger keeps track of all of this. If as you browse the web, the same source seems to be tracking your browser across different websites, then Privacy Badger springs into action, telling your browser not to load any more content from that source. And when your browser stops loading content from a source, that source can no longer track you. Voila!</p>
+	<h2>Install the Privacy Badger extension.</h2>
+	<p>Privacy Badger is a free and open-source browser extension for Google Chrome, Mozilla and Firefox that automatically discovers trackers as you browse the Web. The longer you browse with Privacy Badger, the better it gets at protecting you, so start browsing a little to teach your Badger.</p>
 	<div class="button-holder">
+		<a href='https://privacybadger.org' target="_blank"><button on:click|once='{disable}' disabled='{disabled}'>Download Privacy Badger
+		</button></a>
 		<Complete>
-			Download extension now
-		</Complete>
-		<Complete>
+			{#if !disabled}
 			Already Have it
+			{:else}
+			Just downloaded it
+			{/if}
 		</Complete>
-		<Complete success={false}>Don't want to download it</Complete>
+		<Complete success={false}>
+			No Thanks
+		</Complete>
 	</div>
 </section>
 {/if}
@@ -48,5 +53,14 @@
 	width: 27vw;
 	display: flex;
     flex-flow: column nowrap;
+   }
+   button {
+	   padding: 10px 20px;
+	   margin: 10px;
+	   border: black solid 0px;
+	   border-radius: 8px;
+   }
+   a {
+	   text-decoration: none;
    }
 </style>

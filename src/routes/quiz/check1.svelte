@@ -18,23 +18,24 @@
 <svelte:head>
 	<title>Security vs Privacy: What’s at stake?</title>
 </svelte:head>
-<Trans>
+<Trans>	<h3>Checkpoint1</h3>
         <h1>Security vs Privacy: What’s at stake?</h1>
-<p> When it comes to privacy and security, it’s a good idea to have both. Each can impact your cyber safety. But what’s the difference?</p>    
-<p>Privacy relates to any rights you have to control your personal information and how it’s used. Think about those privacy policies you’re asked to read and agree to when you download new smartphone apps.</p>    
-<p>Security, on the other hand, refers to how your personal information is protected. Your data — different details about you — may live in a lot of places. That can challenge both your privacy and your security.</p>    
-<p>Some people regard privacy and security as pretty much the same thing. That’s because the two sometimes overlap in our connected world. But they aren’t the same, and knowing how they differ may help you to protect yourself in an increasingly connected world.</p>    
-<h2>What’s the difference between privacy and security?</h2>
-<p>Here’s an example. You might share personal information with your bank when you open a checking account. What happens after that? Here are three possible outcomes, all related to your personal information (not to the money you may have deposited in the checking account).</p>    
-    <ul>
-        <li>Your privacy and security are maintained. The bank uses your information to open your account and provide you with products and services. They go on to protect that data.</li>
-        <li>Your privacy is compromised, and your security is maintained. The bank sells some of your information to a marketer. Note: You may have agreed to this in the bank’s privacy disclosure. The result? Your personal information is in more hands than you may have wanted.</li>
-        <li>Both your privacy and security are compromised. The bank gets hit by a data breach. Cybercriminals penetrate a bank database, a security breach. Your information is exposed and could be sold on the dark web. Your privacy is gone. You could become the victim of cyber fraud and identity theft.</li>
-    </ul>
-<p>    It would be great if your risks began and ended with that theoretical bank. But your personal information is likely all over the connected world — in government offices, at healthcare providers, at stores and restaurants, and in many of your online accounts. You might say it’s everywhere — not literally, but it’s certainly in enough places that it’s out of your control.</p>    
-<p>If a cybercriminal accesses that information, it could be off to the races. Your privacy and security could both get trampled.</p>    
+		<p><strong>Congratulations!</strong> By completing these tasks, you have just taken a few steps toward securing your personal information from potential cybercrime. But the truth is, your data — different details about you — lives in a lot of places in our increasingly connected world. </p>
+		<p>Some people think of privacy and security as pretty much the same thing.  While the two sometimes overlap, they aren’t the same, and knowing how they differ will help give you control over your personal information and how it’s used.</p>
+		<p><strong>What’s the difference between privacy and security?</strong></p>
+		<p>Security refers to how your personal information is protected. </p>
+		<p>Privacy, on the other hand, relates your rights to control the data that’s being collected about you, how it’s collected, why, and who it’s shared with.</p>
+		 
+		<p><strong>Why does privacy matter?</strong></p>
+		<p>The convenience of living in a constantly connected world comes at a cost. Our daily interactions with technology generates an unimaginable amount of data that is being harvested and sold to those who want to predict and shape our behavior. </p>
+		
+		
+		<p>You might think it’s no big deal to give up your data in exchange for personalized ads and content, but consumption -- browsing through a store and buying things -- and quiet time alone are both important parts of how we define ourselves. If we blindly agree to live in a state of constant surveillance, we lose the ability to choose for ourselves and allow others to influence our behaviors and self-perception.</p>
+		
+		<p>Now imagine if our society accepts surveillance as the new normal and citizens know they are being watched constantly. We may have highly personalized access to goods and services, but we will be less likely to speak freely and act individually. Without privacy as a fundamental right, we lose power and become an obedient and submissive society.</p>
+		
 <div class="button-holder">
-    <Complete>Continue Privacy Challege</Complete>
+    <Complete>Continue to next Challenge</Complete>
 </div>
 <Back/>
 </Trans>
@@ -50,5 +51,9 @@
 	   margin: 10px;
 	   border: black solid 0px;
 	   border-radius: 8px;
+   }
+   strong {
+	   font-weight: 700;
+	   font-size: 22px;
    }
 </style>
