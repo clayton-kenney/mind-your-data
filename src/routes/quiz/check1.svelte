@@ -8,7 +8,8 @@
 	 import { count, timerActive } from '../../store.js'
 	 import Complete from '../../components/complete.svelte'
 	 import Back from '../../components/Back.svelte'
-
+    import { fly } from 'svelte/transition';
+    import { sineInOut } from 'svelte/easing';
     onMount(async() => {
 		$quizSteps[$count].status = 1;
 		timerActive.set(!$timerActive)
@@ -18,7 +19,7 @@
 <svelte:head>
 	<title>Security vs Privacy: What’s at stake?</title>
 </svelte:head>
-<Trans id="main-content">	
+<div id="main-content" in:fly="{{delay: 500, duration: 800, x: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: -800, opacity: 0, easing: sineInOut}}">	
 	<section>
 		<div>
 	<h3>Checkpoint1</h3>
@@ -44,18 +45,14 @@
 
 <Back/>
 </section>
-</Trans>
+</div>
 
 <style>
-   .button-holder {
-	width: 27vw;
-	display: flex;
-    flex-flow: column nowrap;
-   }
-   section{
+   #main-content{
 			width:100%;
-			background-image: url(https://images.unsplash.com/photo-1554936970-e49a373f6967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=660&q=80);
+			background-image: url(https://images.unsplash.com/photo-1558697524-5a2d1e8a93d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80);
 			background-size: contain;
+			padding-top: 15px;
    }
    div {
 	width: 50%;

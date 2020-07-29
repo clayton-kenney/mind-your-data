@@ -18,7 +18,9 @@
 <svelte:head>
 	<title>How  to make change?</title>
 </svelte:head>
-<Trans>
+<Trans id="main-content">
+	<section>
+		<div>
     <h1>We must claim our right to privacy.</h1>
         <p>Agitate for change. Like most rights, privacy draws notice only after it’s gone. At that point, it’s harder to regain. Just as we see the environmental impact of the early Industrial Age, future generations will judge today’s society on how well it rose to the challenges of surveillance and massive information collection. Push for reform.</p>
     <div class="button-holder">
@@ -26,19 +28,32 @@
         <button >Sign a Petition</button>
         <button >Contact your Rep</button>
 	</div>
+	</div>
 <Back/>
+</section>
 </Trans>
 
 <style>
-   .button-holder {
-	width: 27vw;
-	display: flex;
-    flex-flow: column nowrap;
+   section{
+			width:100vw;
+			height: 100vh;
+			background-image: url(https://images.unsplash.com/photo-1557411732-1797a9171fcf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+			background-size: contain;
+			padding-top: 15px;
    }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
+   div {
+	width: 50%;
+              margin: auto;
+              background: #38424D; 
+              border: none;
+              border-radius: 15px;
+              padding: 9.3vh 5vw 0vh 9.3vh;
+              color: #FFFFFF;
    }
+  
+   strong {
+	   font-weight: 700;
+	   font-size: 22px;
+   }
+   
 </style>

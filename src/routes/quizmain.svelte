@@ -13,7 +13,7 @@
  import Checkpoint3 from './quiz/check3.svelte'
  import Completion from '../components/Completion.svelte'
  import { createEventDispatcher, beforeUpdate, afterUpdate, onMount } from 'svelte';
-import { slide } from 'svelte/transition';
+import { slide, fly, fade } from 'svelte/transition';
 import { quintOut, quintIn } from 'svelte/easing';
 import { count } from '../store.js'
 //import quizSteps from '../store.js'

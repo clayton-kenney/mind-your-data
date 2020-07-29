@@ -10,7 +10,8 @@
 	 //sets aside icon to in progress via store
 	 import { quizSteps, count, timerActive } from '../../store.js'
 
-	onMount(async() => {$quizSteps[$count].status = 1;
+	onMount(async() => {
+		$quizSteps[$count].status = 1;
 		timerActive.set(!$timerActive)});
 	onDestroy(() => timerActive.set(!$timerActive))
 
@@ -18,7 +19,9 @@
 <svelte:head>
 	<title>Surveillance Capitalism How did this happen?</title>
 </svelte:head>
-<Trans>
+<Trans id="main-content">
+	<section>
+		<div>
     <h3>Checkpoint 2:</h3>
         <h1>Surveillance Capitalism How did this happen?</h1>
 		<p><strong>Great!</strong>You are now on your way to claiming your privacy.</p>
@@ -30,15 +33,28 @@
     <div class="button-holder">
 		<Complete>Start the next Challenge</Complete>
 	</div>
+	</div>
 	<Back/>
+	</section>
 </Trans>
 
 <style>
-   .button-holder {
-	width: 27vw;
-	display: flex;
-    flex-flow: column nowrap;
+   section{
+			width:100%;
+			background-image: url(https://images.unsplash.com/photo-1535376472810-5d229c65da09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2600&q=80);
+			background-size: contain;
+			padding-top: 15px;
    }
+   div {
+	width: 50%;
+              margin: auto;
+              background: #38424D; 
+              border: none;
+              border-radius: 15px;
+              padding: 9.3vh 5vw 0vh 9.3vh;
+              color: #FFFFFF;
+   }
+  
    strong {
 	   font-weight: 700;
 	   font-size: 22px;

@@ -1,10 +1,11 @@
 <script>
     //total time for countdown
 import { tweened } from 'svelte/motion';
-import { cubicOut } from 'svelte/easing';
+import { cubicOut, sineInOut  } from 'svelte/easing';
 import Check from './Check.svelte';
 import { quizSteps, timerActive, progress, count } from '../store.js';
 import { afterUpdate } from 'svelte';
+import { slide, fly, fade } from 'svelte/transition';
 //console.log($quizSteps);
 let start= 30 * 60;
 let timer = tweened(start);
@@ -20,12 +21,16 @@ let bg1 = true;
 let bg2 = false;
 let bg3 = false;
 
+let color;
 afterUpdate(() =>{
     if($count > 3){bg1 = false; bg2 = true;}
-{if( $count  > 7){bg2= false; bg3= true;}
-}})
+    if($count  > 7){bg2= false; bg3= true;}
+    if(bg1){color = "#74ef7b"}
+    if(bg2){color = "#F1C330"}
+    if(bg3){color = "#E94040"}
+})
 </script>
-<aside class:bg1 class:bg2 class:bg3>
+<aside class:bg1 class:bg2 class:bg3 in:fly="{{delay: 150, duration: 800, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fade="{{delay: 100, duration: 800}}">
     <section id="timer">
        <div>Time Remaining:</div> <div id='minutes' style='white-space:nowrap;'>{minutes}:{seconds}</div> 
        <div id='challenge-name'>
@@ -38,7 +43,7 @@ afterUpdate(() =>{
     <section class='done'>
         {#each $quizSteps as challenge}
             {#if challenge.type != 'checkpoint'}
-        <Check active={challenge.status}/> 
+        <Check active={challenge.status} color={color}/> 
             {/if}
         {/each}    
     </section>
@@ -68,11 +73,7 @@ afterUpdate(() =>{
         align-items: center;
         justify-content: center;
     }
-    #remaining {
-        font-size: 20px;
-        padding: 20px 0px 20px 0px;
-
-    }
+    
     #minutes {
         color:white;
         background: #0F2033;
@@ -93,22 +94,6 @@ afterUpdate(() =>{
         align-items: center;
         width: 95%;
         margin-bottom: 20px
-    }
-    .lock {
-        
-        display: block;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        background: url(../checked.svg) no-repeat;
-        width: 20px;
-        margin: 5px;
-        padding-left: 20px;
-
-    }
-    .ellipse {
-        width:3px;
-        height:3px;
-        margin: 3px;
     }
     progress{
         -webkit-appearance: none;

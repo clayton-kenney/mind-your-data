@@ -6,7 +6,8 @@
 	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../../store.js'
 	import Back from '../../components/Back.svelte'
-
+	import { fly, fade } from 'svelte/transition'
+	import { sineInOut } from 'svelte/easing';
 	//sets aside icon to in progress via store
     onMount(async() => {$quizSteps[$count].status = 1});
 	let mac = false;
@@ -15,7 +16,7 @@
 <svelte:head>
 	<title>Domain Name Service</title>
 </svelte:head>
-<Trans>
+<div in:fly="{{delay: 150, duration: 800, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fade="{{delay: 100, duration: 800}}">
 {#if $step==0}
 <section>
 	<h2>Domain Name Server (DNS): Quad9
@@ -59,7 +60,7 @@
 </section>
 {/if}
 <Back/>
-</Trans>
+</div>
 <style>
    .button-holder {
 	width: 27vw;
