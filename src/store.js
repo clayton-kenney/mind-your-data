@@ -1,7 +1,7 @@
 import { writable, } from 'svelte/store';
 import { tweened } from 'svelte/motion';
 import { cubicOut } from 'svelte/easing';
-export const count = writable(0);
+export const count = writable(3);
 export const step = writable(0);
 export const timerActive = writable(false);
 export const progress = tweened(0, {

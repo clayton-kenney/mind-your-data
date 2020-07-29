@@ -37,24 +37,21 @@ $: showSideBar = quizStep[$count].showSideBar;
 <svelte:head>
 	<title>Test your knowledge</title>
 </svelte:head>
-<main transition:slide="{{delay: 100, duration: 400, easing: quintOut}}">
+<main transition:slide="{{delay: 100, duration: 400, easing: quintOut}}" >
        {#if showSideBar}
        <Completion class='step'>
               {quizStep[$count].name}
            
        </Completion>
+       <div id="main-content"> 
+              <svelte:component this={quizStep[$count].component} />
+             </div>
+       {:else }
+       <div id="checkpoint"> 
+              <svelte:component this={quizStep[$count].component} />
+       </div>
        {/if}
-       <section id="main-content"> 
-        <svelte:component this={quizStep[$count].component} />
-       <!--<Quiz2 on:message={handleMessage}/> -->
-<!--<select bind:value={selected}>
-        {#each quizSteps as q}
-		<option value={q}>Question {q.id}</option>
-	{/each}
-</select>-->
-<!--<button on:click={handleClick}>Click me</button>-->
-<!--<Progress past={past.name} current={selected.name} next={next.name}/>-->
-       </section>
+       
 </main>
 <style>
        main {
@@ -76,5 +73,8 @@ $: showSideBar = quizStep[$count].showSideBar;
               margin-left: 21vw;
               margin-right: 50px;
               padding-right: 15px;*/
+       }
+       #checkpoint {
+             
        }
 </style>

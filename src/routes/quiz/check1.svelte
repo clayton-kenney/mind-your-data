@@ -18,7 +18,10 @@
 <svelte:head>
 	<title>Security vs Privacy: What’s at stake?</title>
 </svelte:head>
-<Trans>	<h3>Checkpoint1</h3>
+<Trans id="main-content">	
+	<section>
+		<div>
+	<h3>Checkpoint1</h3>
         <h1>Security vs Privacy: What’s at stake?</h1>
 		<p><strong>Congratulations!</strong> By completing these tasks, you have just taken a few steps toward securing your personal information from potential cybercrime. But the truth is, your data — different details about you — lives in a lot of places in our increasingly connected world. </p>
 		<p>Some people think of privacy and security as pretty much the same thing.  While the two sometimes overlap, they aren’t the same, and knowing how they differ will help give you control over your personal information and how it’s used.</p>
@@ -37,7 +40,10 @@
 <div class="button-holder">
     <Complete>Continue to next Challenge</Complete>
 </div>
+</div>
+
 <Back/>
+</section>
 </Trans>
 
 <style>
@@ -46,12 +52,21 @@
 	display: flex;
     flex-flow: column nowrap;
    }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
+   section{
+			width:100%;
+			background-image: url(https://images.unsplash.com/photo-1554936970-e49a373f6967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=660&q=80);
+			background-size: contain;
    }
+   div {
+	width: 50%;
+              margin: auto;
+              background: #38424D; 
+              border: none;
+              border-radius: 15px;
+              padding: 9.3vh 5vw 0vh 9.3vh;
+              color: #FFFFFF;
+   }
+  
    strong {
 	   font-weight: 700;
 	   font-size: 22px;

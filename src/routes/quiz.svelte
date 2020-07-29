@@ -22,7 +22,12 @@
     <section>
         <p id="headline">This test contains 10 unique privacy tests that will take you about 30 minutes to complete. Throught the test, we will provide...</p>
         <div class:active="{current === 'webcam'}" on:click="{() => current = 'webcam'}">
-            <p>{$quizSteps[0].name}</p>
+            <div class="caret">
+                <p>{$quizSteps[0].name}</p>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                    </svg>
+            </div>
                 {#if current === 'webcam'}
                 <p>q1 content</p>
                 {/if}
@@ -30,7 +35,12 @@
                 <hr>
         <div class:active="{current === 'https'}"
         on:click="{() => current = 'https'}">
+        <div class="caret">
             <p>{$quizSteps[1].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'https'}
             <p>q2 content</p>
             {/if}
@@ -38,7 +48,12 @@
         <hr>
         <div class:active="{current === 'search'}"
         on:click="{() => current = 'search'}">
+        <div class="caret">
             <p>{$quizSteps[3].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'search'}
             <p>q3 content</p>
             {/if}
@@ -46,7 +61,12 @@
         <hr>
         <div class:active="{current === 'privacy'}"
         on:click="{() => current = 'privacy'}">
+        <div class="caret">
             <p>{$quizSteps[4].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'privacy'}
             <p>q4 content</p>
             {/if}
@@ -54,7 +74,12 @@
         <hr>
         <div class:active="{current === 'tracker'}"
         on:click="{() => current = 'tracker'}">
+        <div class="caret">
             <p>{$quizSteps[5].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'tracker'}
             <p>q5 content</p>
             {/if}
@@ -62,7 +87,12 @@
         <hr>
         <div class:active="{current === 'dns'}"
         on:click="{() => current = 'dns'}">
+        <div class="caret">
             <p>{$quizSteps[6].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'dns'}
             <p>q6 content</p>
             {/if}
@@ -70,7 +100,12 @@
         <hr>
         <div class:active="{current === 'location'}"
         on:click="{() => current = 'location'}">
+        <div class="caret">
             <p>{$quizSteps[8].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'location'}
             <p>q7 content</p>
             {/if}
@@ -78,7 +113,12 @@
         <hr>
         <div class:active="{current === 'iot'}"
         on:click="{() => current = 'iot'}">
+        <div class="caret">
             <p>{$quizSteps[9].name}</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
+                </svg>
+            </div>
             {#if current === 'iot'}
             <p>q8 content</p>
             {/if}
@@ -102,9 +142,6 @@
               flex-flow: row;
               justify-content: center;
               margin-top: 15px;
-       }
-       .step{
-		margin-bottom: 55px;
        }
        section{
               background: #38424D;
@@ -157,4 +194,10 @@
         width: 70%;
         margin: auto;
        }
+       .caret{
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: space-between;
+	}
 </style>
