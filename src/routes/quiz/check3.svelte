@@ -2,9 +2,8 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	import { onMount, afterUpdate, onDestroy } from 'svelte';
-	import Detect from '../../components/Detect.svelte'
 	import Complete from '../../components/complete.svelte'
-
+	import Btn from '../../components/Btn.svelte' //set <Next q={2}> to skip multiple steps
     import Trans from '../../components/TransHelp.svelte';
  //sets aside icon to in progress via store
  import { count, quizSteps, timerActive } from '../../store.js'
@@ -24,7 +23,7 @@
     <h1>We must claim our right to privacy.</h1>
         <p>Agitate for change. Like most rights, privacy draws notice only after it’s gone. At that point, it’s harder to regain. Just as we see the environmental impact of the early Industrial Age, future generations will judge today’s society on how well it rose to the challenges of surveillance and massive information collection. Push for reform.</p>
     <div class="button-holder">
-		<a rel=prefetch href="review"><button>See your results</button></a>
+		<a rel=prefetch href="review"><Btn p={0}>See your results</Btn></a>
         <button >Sign a Petition</button>
         <button >Contact your Rep</button>
 	</div>
