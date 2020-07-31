@@ -14,8 +14,8 @@
     {#if part === 0}
     <section>
         <h1>Welcome to Mind Your Data Challenge</h1>
-        <p>
-            Only for educational purpose, this test will utilize blah blah blah. There will be no personal data collected or shared... This test will only  blah blah blah and utilize blah blah blah. There will be no data... This test will only do blah blah blah and utilize blah blah blah. There will be no data... This test will only do blah blah blah and utilize blah blah blah. There will be no data... </p>
+        <p>This challenge is designed to educate people about the implications of surveillance capitalism, empower them to take control over their own data, and equip with tools to make change and opt use. </p>
+        <p>Use of this site is at your own risk. If you don't know what something means, or does, skip it. We don't want you to mess up your computer or phone.</p>
         <button on:click='{() => part = 1}'>Start Challenge</button>
     </section>
     {:else if part === 1}

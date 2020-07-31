@@ -68,7 +68,9 @@ $: showSideBar = quizStep[$count].showSideBar;
               padding: 9.3vh 5vw 0vh 9.3vh;
               color: #FFFFFF;
               width: 100%;
-    
+              background-image: url('../bg-vector.png');
+           
+              background-blend-mode: darken;
               /*margin-top: -50px;
               margin-left: 21vw;
               margin-right: 50px;

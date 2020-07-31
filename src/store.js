@@ -3,7 +3,7 @@ import { tweened } from 'svelte/motion';
 import { cubicOut } from 'svelte/easing';
 
 //determines what quiz component is showing
-export const count = writable(10); //max 10
+export const count = writable(0); //max 10
 
 //steps within each quiz component
 export const step = writable(0);
@@ -15,7 +15,7 @@ export const progress = tweened(0, {
     duration: 600,
     easing: cubicOut
 })
-/*
+
 export const quizSteps =  writable([
     { id:'1',  component: "Quiz1", name: 'Cover Webcam', complete:false, status: 0, steps: 3, displayProgress: true},
     { id: '2', component: "Quiz2", name: 'Https Everywhere', complete:false, status: 0, steps: 1, displayProgress: true},
@@ -45,8 +45,8 @@ export const quizSteps =  writable([
     { id: '9', component: 'Quiz8', name: 'Disable Location Tracking', complete:true, status: 0, steps: 2, displayProgress: true},
     { id: '11', type:'checkpoint', component: 'Checkpoint3', name: 'How to Make change', complete:false, status: 0, steps: 0, displayProgress: false},
     { id: '12', type:'checkpoint', component: 'Review', name: 'Review', complete:false, status: 0, steps: 0, displayProgress: false},
-])*/
-
+]) */
+/*
 export const quizSteps =  writable([
     { id:'1',  component: "Quiz1", name: 'Cover Webcam', complete:true, status: 0, steps: 3, displayProgress: true},
     { id: '2', component: "Quiz2", name: 'Https Everywhere', complete:true, status: 0, steps: 1, displayProgress: true},
@@ -61,3 +61,4 @@ export const quizSteps =  writable([
     { id: '11', type:'checkpoint', component: 'Checkpoint3', name: 'How to Make change', complete:false, status: 0, steps: 0, displayProgress: false},
     { id: '12', type:'checkpoint', component: 'Review', name: 'Review', complete:false, status: 0, steps: 0, displayProgress: false},
 ])
+*/

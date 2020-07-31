@@ -62,12 +62,15 @@
 		margin: 2em, 0em;
 
 	}
+	.home {
+		background-color: white;
+	}
 </style>
 
-<nav>
-	<a href='/home'><img  src='./MYDlogo_nav.png' alt="Mind your Data logo"></a>
+<nav class:home={segment == 'home'}>
+	<a href='.'><img  src='./MYDlogo_nav.png' alt="Mind your Data logo"></a>
 	<ul id="navigation">
-		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
+		<li><a aria-current="{segment === 'home' ? 'page' : undefined}" href=".">home</a></li>
 		<li><a aria-current="{segment === 'quiz' ? 'page' : undefined}" href="quiz">quiz</a></li>
 		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
 
