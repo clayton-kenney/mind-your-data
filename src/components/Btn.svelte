@@ -16,11 +16,8 @@
 </button>
 
 <style>
-    button {
-            padding: 10px 20px;
-			margin: 10px;
-			border: black solid 0px;
-			border-radius: 8px;
+    button{
+        margin-top: 7.2vh;
     }
     .green {
         background-color: #73ef7b;

@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	font-family: 'Anonymous Pro', monospace;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.5;
 	color: #333;
 	background-color: #303538;
@@ -15,7 +15,7 @@ h1, h2 {
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 2.3em;
 	font-weight: 700;
 }
 main {
@@ -45,10 +45,11 @@ code {
     flex-flow: column nowrap;
 }
 button {
-	padding: 10px 20px;
+	padding: 20px 35px;
 	margin: 10px;
 	border: black solid 0px;
 	border-radius: 8px;
+	font-size: 18px;
 }
 
 @media (min-width: 400px) {

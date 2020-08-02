@@ -37,10 +37,7 @@ function incomplete() {
        
 <style>
     button {
-        padding: 10px 20px;
-			margin: 10px;
-			border: black solid 0px;
-			border-radius: 8px;
+        
     }
     .green {
         background-color: #73ef7b;

@@ -39,7 +39,7 @@ $: showSideBar = quizStep[$count].showSideBar;
 </svelte:head>
 <main transition:slide="{{delay: 100, duration: 400, easing: quintOut}}" >
        {#if showSideBar}
-       <Completion class='step'>
+       <Completion>
               {quizStep[$count].name}
            
        </Completion>

@@ -38,13 +38,14 @@
             });*/
 </script>
 <svelte:head>
+
 	<title>Webcam Challenge</title>
 </svelte:head>
 <Trans>
 
 {#if $step==0}
 <section>
-	<h2>Is your Webcam Covered?</h2> 
+	<h1>Is your Webcam Covered?</h1> 
     <p>It’s likely your computer already has a built-in camera, and it’s possible for that camera to be used to spy on you.</p>  <p>If your webcam for whatever reason has been hacked, the person on the other side can take pictures and video of anything or anyone. No, this isn’t just paranoia–a recent survey conducted by HP found that 10% in the U.S. either know someone whose webcam was hacked or have had their own webcam hacked.</p>
     <Btn p={4.75} green={true}>Continue</Btn>
 </section>

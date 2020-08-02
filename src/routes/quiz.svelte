@@ -1,6 +1,7 @@
 <script>
   import Trans from '../components/TransHelp.svelte'
-
+  import { slide, blur, fade } from 'svelte/transition';
+	import { quintOut, expoOut } from 'svelte/easing';
     let part = 0;
   let current = 'initial';
   import { quizSteps } from '../store.js'
@@ -9,45 +10,45 @@
 	<title>Data privacy quiz</title>
 </svelte:head>
 
-<main>
+<main transition:fade="{{delay: 250, duration: 300}}">
     <Trans>
     {#if part === 0}
-    <section>
-        <h1>Welcome to Mind Your Data Challenge</h1>
-        <p>This challenge is designed to educate people about the implications of surveillance capitalism, empower them to take control over their own data, and equip with tools to make change and opt use. </p>
-        <p>Use of this site is at your own risk. If you don't know what something means, or does, skip it. We don't want you to mess up your computer or phone.</p>
-        <button on:click='{() => part = 1}'>Start Challenge</button>
+    <section transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        <h1 id="welcome">Welcome to the Mind Your Data Challenge</h1>
+        <p class="welcome-text">This module is designed to educate visitors about the implications of surveillance capitalism, empower them to take control over their own data, and equip them with tools to make change and opt use. </p>
+        <p class="welcome-text">Use of this site is at your own risk. If you don't know what something means, or does, skip it.</p>
+        <button on:click='{() => part = 1}' id="start-challenge">Start Challenge</button>
     </section>
     {:else if part === 1}
-    <section>
-        <p id="headline">This test contains 10 unique privacy tests that will take you about 30 minutes to complete. Throught the test, we will provide...</p>
-        <div class:active="{current === 'webcam'}" on:click="{() => current = 'webcam'}">
-            <div class="caret">
+    <section in:slide="{{delay: 25, duration: 500, easing: quintOut }}" out:blur="{{ amount: 15, easing:expoOut, duration: 1000}}">
+        <p id="headline">This test contains 8 unique privacy tests that will take no more than 30 minutes to complete. Each test will give you some background infomation and then suggestions on how to better protect your data and privacy. All suggestins are optional, but if you want access to awsome swag, you need to complete 90% of the test. </p>
+        <div class:active="{current === 'webcam'}" on:click="{() => current = 'webcam'}" >
+            <div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
                 <p>{$quizSteps[0].name}</p>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
                     </svg>
             </div>
                 {#if current === 'webcam'}
-                <p>q1 content</p>
+                <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Learn why it's important to cover your webcam when not in use...</p>
                 {/if}
                 </div>
                 <hr>
         <div class:active="{current === 'https'}"
-        on:click="{() => current = 'https'}">
-        <div class="caret">
+        on:click="{() => current = 'https'}" >
+        <div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
             <p>{$quizSteps[1].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
                 </svg>
             </div>
             {#if current === 'https'}
-            <p>q2 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">See why using a handy browser extension can easily prevent unwanted snooping...</p>
             {/if}
         </div>
         <hr>
         <div class:active="{current === 'search'}"
-        on:click="{() => current = 'search'}">
+        on:click="{() => current = 'search'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[3].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,12 +56,12 @@
                 </svg>
             </div>
             {#if current === 'search'}
-            <p>q3 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">All of the urls you visit are converted from text to numbers before being sent across the internet. Who converts this matters...</p>
             {/if}
         </div>
         <hr>
         <div class:active="{current === 'privacy'}"
-        on:click="{() => current = 'privacy'}">
+        on:click="{() => current = 'privacy'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[4].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,12 +69,12 @@
                 </svg>
             </div>
             {#if current === 'privacy'}
-            <p>q4 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Your search enginee is spying on you and making money off of it. However, some are better than others...</p>
             {/if}
         </div>
         <hr>
         <div class:active="{current === 'tracker'}"
-        on:click="{() => current = 'tracker'}">
+        on:click="{() => current = 'tracker' }" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[5].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,12 +82,12 @@
                 </svg>
             </div>
             {#if current === 'tracker'}
-            <p>q5 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Much of the surveillance of your internet browsing is done through cookies, by changing some simple setting you can better protect your data...</p>
             {/if}
         </div>
         <hr>
         <div class:active="{current === 'dns'}"
-        on:click="{() => current = 'dns'}">
+        on:click="{() => current = 'dns'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[6].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,12 +95,12 @@
                 </svg>
             </div>
             {#if current === 'dns'}
-            <p>q6 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Go a step further and block all the trackers with a nifty browser add-on, and keep your data to yourself...</p>
             {/if}
         </div>
         <hr>
         <div class:active="{current === 'location'}"
-        on:click="{() => current = 'location'}">
+        on:click="{() => current = 'location'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[8].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,12 +108,12 @@
                 </svg>
             </div>
             {#if current === 'location'}
-            <p>q7 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Your phone tracks just about everywhere you go, and this data commonly sold. Learn how to disable location for a little more privacy...</p>
             {/if}
         </div>
         <hr>
         <div class:active="{current === 'iot'}"
-        on:click="{() => current = 'iot'}">
+        on:click="{() => current = 'iot'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[9].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,18 +121,18 @@
                 </svg>
             </div>
             {#if current === 'iot'}
-            <p>q8 content</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Smart vacums, intelligents lights, internet connect theromstats, and voice assistants are part of everyday life, but also collect and sell a lot of personal data. Learn how to gain more privacy from these devices... </p>
             {/if}
         </div>
        
-        <button on:click='{() => part = 2}'>Continue</button>
+        <button id="start"><a rel=prefetch href='quizmain' >Start Challenge</a></button>
     </section>
-    {:else} 
+    <!--{:else} 
     <section id="chapter1">
         <h1 id="chapter">Chapter 1: Security</h1>
         <p id="permission">Through out this challenge, we need your permission to give us one time non-recurring access to your webcam to test your practice. Please click allow for one time non-recurring access to your webcame to move to the next step to complete this challenge.</p>
         <button id="start"><a rel=prefetch href='quizmain' >Start Challenge</a></button>
-    </section>
+    </section> -->
     {/if}
 </Trans>
     </main>
@@ -146,54 +147,47 @@
        section{
               background: #38424D;
               width: 65vw;
-              min-height: 75vh;
-              /*height: 86vh; */
+              /*min-height: 75vh;
+              height: 86vh; */
               border-radius: 15px;
               border: 0px;
-              margin: 0px;
-              padding: 9.3vh 5vw 0vh 9.3vh;
+              margin: auto;
+              padding: 15vh 9vw;
               color: #FFFFFF;
               text-align: center;
-              /*margin-top: -50px;
-              margin-left: 21vw;
-              margin-right: 50px;
-              padding-right: 15px;*/
+              max-width: 62%;
+              background-image: url(/bg-lock.png);
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            background-position: center;
        }
-       #chapter1 {
-           width: 85vw;
-           background-image: url('../bg-vector.png');
-           
-           background-blend-mode: darken;
+       #welcome {
+           padding-bottom: 40px;
        }
        p{
            text-align: left;
        }
+       .welcome-text {
+           text-align:center;
+       }
        #headline {
            font-weight: 600;
            margin-bottom: 25px;
+           font-size: 20px;
        }
-       #chapter {
-           color: #73ef7b;
-       }
-       button{
-        padding: 10px 20px;
-		margin: 10px;
-		border: black solid 0px;
-		border-radius: 8px;
-        text-decoration: none;
-        }
+       /*green button*/
         #start {
             background-color: #73ef7b;
+            margin-top: 50px;
+        }
+        #start-challenge {
+            margin-top: 75px;
         }
         a{
             text-decoration: none;        }
-       .active {
-           background-color: pink;
-       }
-       #permission {
-        width: 70%;
-        margin: auto;
-       }
+       /*.active {
+           background-color: grey;
+       }*/
        .caret{
 		display: flex;
 		flex-flow: row nowrap;
