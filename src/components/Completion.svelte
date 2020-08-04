@@ -99,12 +99,12 @@ afterUpdate(() =>{
         -webkit-appearance: none;
 	    border: none;
         display: block;
-        width: 86%;
+        width: 22vw;
         position: relative;
-        bottom: 4.7vh;
+        bottom: 33px;
         height: 6px;
         z-index: -1;
-        margin-left: 31px;
+        margin-left: 1.9vw;
     }
     progress::-webkit-progress-bar {
 	    background: #303538;
@@ -149,6 +149,7 @@ afterUpdate(() =>{
         font-size: 40px;
         color: white;
         margin: auto;
+        min-width: 100px;
     }
     
 </style>

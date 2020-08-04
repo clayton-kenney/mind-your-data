@@ -40,13 +40,15 @@ $: quizNumber = quizStep[$count].name;
 	<title>Mind your Data</title>
 </svelte:head>
 <main>
-       <div in:fly="{{delay: 800, duration: 1000, x: -800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: -800, y: 0, opacity: 0, easing: sineInOut}}">
        {#if showSideBar}
+       <div in:fly="{{delay: 500, duration: 1000, x: -800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: -800, y: 0, opacity: 0, easing: sineInOut}}">
+       
        <svelte:component this={Completion}>
               {quizStep[$count].name}
        </svelte:component>
-       {/if}
+       
        </div>
+       {/if}
        <!--<div id="main-content"> -->
        {#if $count === 0}
               <div id="main-content" in:fly="{{delay: 1500, duration: 1500 , x: 0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
@@ -61,11 +63,11 @@ $: quizNumber = quizStep[$count].name;
                      <Quiz6 />
               </div>
        {:else if $count === 3}
-              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500, x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 800, y: 0, opacity: 0, easing: sineInOut}}"> 
+              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500, x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
                      <Checkpoint1 />
               </div>
        {:else if $count === 4}
-              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+              <div id="main-content" in:fly="{{delay: 550, duration: 1000, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
                      <Quiz3 />
               </div>
        {:else if $count === 5}
@@ -77,11 +79,11 @@ $: quizNumber = quizStep[$count].name;
                      <Quiz5 />
               </div>
        {:else if $count === 7}
-              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500 , x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 800, y: 0, opacity: 0, easing: sineInOut}}"> 
+              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500, x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
                      <Checkpoint2 />
               </div>
        {:else if $count === 8}
-              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+              <div id="main-content" in:fly="{{delay: 550, duration: 1000, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
                      <Quiz7 />
               </div>
        {:else if $count === 9}
@@ -89,7 +91,7 @@ $: quizNumber = quizStep[$count].name;
                      <Quiz8 />
               </div>
        {:else}
-              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500 , x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 800, y: 0, opacity: 0, easing: sineInOut}}"> 
+              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500, x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
                      <Checkpoint3 />
               </div>
        {/if}

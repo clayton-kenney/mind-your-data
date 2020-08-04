@@ -12,17 +12,17 @@
 
 <main>
     {#if part === 0}
-    <section in:fly="{{delay: 1000, duration: 1000, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: quintOut}}">
+    <section in:fly="{{delay: 1000, duration: 1000, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}" out:fly="{{delay: 100, duration: 800, x: 0, y: -800, opacity: 0, easing: quintOut}}">
         <h1 id="welcome">Welcome to the Mind Your Data Challenge</h1>
         <p class="welcome-text">This module is designed to educate visitors about the implications of surveillance capitalism, empower them to take control over their own data, and equip them with tools to make change and opt use. </p>
         <p class="welcome-text">Use of this site is at your own risk. If you don't know what something means, or does, skip it.</p>
         <button on:click='{() => part = 1}' id="start-challenge">Begin</button>
     </section>
     {:else if part === 1}
-    <section in:fly="{{delay: 150, duration: 800, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}">
+    <section in:fly="{{delay: 150, duration: 800, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}" out:fly="{{delay: 100, duration: 800, x: 0, y: -800, opacity: 0, easing: quintOut}}">
         <p id="headline">This test contains 8 unique privacy tests that will take no more than 30 minutes to complete. Each test will give you some background information and then suggestions on how to better protect your data and privacy. All suggestions are optional, but if you want access to awesome swag, you need to complete 90% of the test. </p>
         <div class:active="{current === 'webcam'}" on:click="{() => current = 'webcam'}" >
-            <div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+            <div class="caret" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
                 <p>{$quizSteps[0].name}</p>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
@@ -35,7 +35,7 @@
                 <hr>
         <div class:active="{current === 'https'}"
         on:click="{() => current = 'https'}" >
-        <div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        <div class="caret" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
             <p>{$quizSteps[1].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
@@ -47,7 +47,7 @@
         </div>
         <hr>
         <div class:active="{current === 'search'}"
-        on:click="{() => current = 'search'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        on:click="{() => current = 'search'}" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[3].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +60,7 @@
         </div>
         <hr>
         <div class:active="{current === 'privacy'}"
-        on:click="{() => current = 'privacy'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        on:click="{() => current = 'privacy'}" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[4].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@
         </div>
         <hr>
         <div class:active="{current === 'tracker'}"
-        on:click="{() => current = 'tracker' }" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        on:click="{() => current = 'tracker' }" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[5].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +86,7 @@
         </div>
         <hr>
         <div class:active="{current === 'dns'}"
-        on:click="{() => current = 'dns'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        on:click="{() => current = 'dns'}" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[6].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@
         </div>
         <hr>
         <div class:active="{current === 'location'}"
-        on:click="{() => current = 'location'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        on:click="{() => current = 'location'}" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[8].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +112,7 @@
         </div>
         <hr>
         <div class:active="{current === 'iot'}"
-        on:click="{() => current = 'iot'}" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+        on:click="{() => current = 'iot'}" in:slide="{{delay: 25, duration: 500, easing: quintOut }}">
         <div class="caret">
             <p>{$quizSteps[9].name}</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
