@@ -74,10 +74,11 @@
 	<div class:active="{current === 'apple'}"
 	on:click="{() => current = 'apple'}">
 	<div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+		<p>Apple Siri</p>
+
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
 			</svg>
-		<p>Apple Siri</p>
 	</div>
 		{#if current==='apple'}
 	
