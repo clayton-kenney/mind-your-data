@@ -5,6 +5,8 @@ export let p = 7.6;
 export let green = false;
 export let yellow = false;
 export let red = false;
+//export let destoryVid = false;
+
 //sets current icon for sidebar
 function increment() {
         $quizSteps[$count].complete = true;

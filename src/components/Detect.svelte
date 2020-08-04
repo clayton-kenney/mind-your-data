@@ -40,13 +40,17 @@ if (isOpera){
 }else if (isEdgeChromium) {
     browser+= " Edge Chromium"
 } else {
-    //browser+= " Blink"
+    browser += " We don't know???"
 }
 </script>
 <p><strong>{browser}</strong></p>
 <p></p>
 {#if isOpera} 
-	Opera instructions
+	<ol>
+        <li>Go to browser’s advanced setting</li>
+        <li>Select Privacy and security > Content settings > CookiesSelect</li>
+        <li>Block third-party cookies on the dropdown menu.</li>
+    </ol>
 {:else if isFirefox} 
 	<ol>
         <li>In Firefox, click Tools > Options > Privacy</li>
@@ -63,9 +67,14 @@ if (isOpera){
         <li>Another option in this dialog lets you delete all cookies and other site data automatically when you close the browser.</li>
     </ol>
 {:else if isIE} 
-	IE instructions
+	<h2>Honestly...you need to stop using internet explorer. Then we can talk. </h2>
 {:else if isEdge }
-	Edge insructions
+        <ol>
+            <li>Go to Settings</li>
+            <li>Select View Advanced Settings</li>
+            <li>Press the drop down arrow under Cookies</li>
+            <li>Select the 'Block only third party cookies' option</li>
+        </ol>
 {:else if isChrome }
 	<ol>
         <li>Click the wrench icon in the top-right corner of the browser window and 
@@ -74,9 +83,14 @@ if (isOpera){
         <li>Another option in this dialog lets you delete all cookies and other site data automatically when you close the browser.</li>
     </ol>
 {:else if isEdgeChromium}
-	Edge Chromium instructions
+<ol>
+    <li>Go to Settings</li>
+    <li>Select View Advanced Settings</li>
+    <li>Press the drop down arrow under Cookies</li>
+    <li>Select the 'Block only third party cookies' option</li>
+</ol>
 {:else} 
-	Some other instructions
+	<p>Sorry...we don't know what kind of browser you are using, so can't provide instructions. Try searching DuckDuckGo for an answer.</p>
 {/if}
 <p></p>
 <style>

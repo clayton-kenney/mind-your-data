@@ -1,20 +1,21 @@
 <script>
- import Quiz1 from './quiz/q1.svelte'
- import Quiz2 from './quiz/q2.svelte'
- import Quiz3 from './quiz/q3.svelte'
- import Quiz4 from './quiz/q4.svelte'
- import Quiz5 from './quiz/q5.svelte'
- import Quiz6 from './quiz/q6.svelte'
- import Quiz7 from './quiz/q7.svelte'
- import Quiz8 from './quiz/q8.svelte'
- import Quiz9 from './quiz/q9.svelte'
- import Checkpoint1 from './quiz/check1.svelte'
- import Checkpoint2 from './quiz/check2.svelte'
- import Checkpoint3 from './quiz/check3.svelte'
+ import Quiz1 from '../components/q1.svelte'
+ import Vid from '../components/Vid.svelte'
+ import Quiz2 from '../components/q2.svelte'
+ import Quiz3 from '../components/q3.svelte'
+ import Quiz4 from '../components/q4.svelte'
+ import Quiz5 from '../components/q5.svelte'
+ import Quiz6 from '../components/q6.svelte'
+ import Quiz7 from '../components/q7.svelte'
+ import Quiz8 from '../components/q8.svelte'
+ import Checkpoint1 from '../components/check1.svelte'
+ import Checkpoint2 from '../components/check2.svelte'
+ import Checkpoint3 from '../components/check3.svelte'
  import Completion from '../components/Completion.svelte'
+ import Complete from '../components/Complete.svelte'
  import { createEventDispatcher, beforeUpdate, afterUpdate, onMount } from 'svelte';
 import { slide, fly, fade } from 'svelte/transition';
-import { quintOut, quintIn } from 'svelte/easing';
+import { quintOut, quintIn, sineInOut } from 'svelte/easing';
 import { count } from '../store.js'
 //import quizSteps from '../store.js'
 
@@ -33,30 +34,78 @@ const quizStep =  ([
     {component:Checkpoint3, name: 'Change' , showSideBar: false},
 ])
 $: showSideBar = quizStep[$count].showSideBar;
+$: quizNumber = quizStep[$count].name;
 </script>
 <svelte:head>
-	<title>Test your knowledge</title>
+	<title>Mind your Data</title>
 </svelte:head>
-<main transition:slide="{{delay: 100, duration: 400, easing: quintOut}}" >
+<main>
+       <div in:fly="{{delay: 800, duration: 1000, x: -800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: -800, y: 0, opacity: 0, easing: sineInOut}}">
        {#if showSideBar}
-       <Completion>
+       <svelte:component this={Completion}>
               {quizStep[$count].name}
-           
-       </Completion>
-       <div id="main-content"> 
-              <svelte:component this={quizStep[$count].component} />
+       </svelte:component>
+       {/if}
+       </div>
+       <!--<div id="main-content"> -->
+       {#if $count === 0}
+              <div id="main-content" in:fly="{{delay: 1500, duration: 1500 , x: 0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz1 />
+              </div>
+       {:else if $count === 1}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+              <Quiz2 />
+              </div>
+       {:else if $count === 2}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz6 />
+              </div>
+       {:else if $count === 3}
+              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500, x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 800, y: 0, opacity: 0, easing: sineInOut}}"> 
+                     <Checkpoint1 />
+              </div>
+       {:else if $count === 4}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz3 />
+              </div>
+       {:else if $count === 5}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz4 />
+              </div>
+       {:else if $count === 6}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz5 />
+              </div>
+       {:else if $count === 7}
+              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500 , x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 800, y: 0, opacity: 0, easing: sineInOut}}"> 
+                     <Checkpoint2 />
+              </div>
+       {:else if $count === 8}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz7 />
+              </div>
+       {:else if $count === 9}
+              <div id="main-content" in:fly="{{delay: 150, duration: 800, x:0, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: sineInOut}}"> 
+                     <Quiz8 />
+              </div>
+       {:else}
+              <div id="checkpoint" in:fly="{{delay: 1500, duration: 1500 , x: 800, y: 0, opacity: 0.0, easing: sineInOut}}" out:fly="{{delay: 50, duration: 600, x: 800, y: 0, opacity: 0, easing: sineInOut}}"> 
+                     <Checkpoint3 />
+              </div>
+       {/if}
+       <!--<svelte:component this={quizStep[$count].component} />
              </div>
        {:else }
        <div id="checkpoint"> 
               <svelte:component this={quizStep[$count].component} />
-       </div>
-       {/if}
+       </div> -->
        
 </main>
 <style>
        main {
               display: flex;
               flex-flow: row;
+              background: #38424D;
 
        }
        #main-content{

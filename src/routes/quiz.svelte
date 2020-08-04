@@ -1,7 +1,7 @@
 <script>
   import Trans from '../components/TransHelp.svelte'
-  import { slide, blur, fade } from 'svelte/transition';
-	import { quintOut, expoOut } from 'svelte/easing';
+  import { slide, blur, fade, fly } from 'svelte/transition';
+	import { quintOut, expoOut, sineInOut } from 'svelte/easing';
     let part = 0;
   let current = 'initial';
   import { quizSteps } from '../store.js'
@@ -10,18 +10,17 @@
 	<title>Data privacy quiz</title>
 </svelte:head>
 
-<main transition:fade="{{delay: 250, duration: 300}}">
-    <Trans>
+<main>
     {#if part === 0}
-    <section transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
+    <section in:fly="{{delay: 1000, duration: 1000, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}" out:fly="{{delay: 50, duration: 600, x: 0, y: -800, opacity: 0, easing: quintOut}}">
         <h1 id="welcome">Welcome to the Mind Your Data Challenge</h1>
         <p class="welcome-text">This module is designed to educate visitors about the implications of surveillance capitalism, empower them to take control over their own data, and equip them with tools to make change and opt use. </p>
         <p class="welcome-text">Use of this site is at your own risk. If you don't know what something means, or does, skip it.</p>
-        <button on:click='{() => part = 1}' id="start-challenge">Start Challenge</button>
+        <button on:click='{() => part = 1}' id="start-challenge">Begin</button>
     </section>
     {:else if part === 1}
-    <section in:slide="{{delay: 25, duration: 500, easing: quintOut }}" out:blur="{{ amount: 15, easing:expoOut, duration: 1000}}">
-        <p id="headline">This test contains 8 unique privacy tests that will take no more than 30 minutes to complete. Each test will give you some background infomation and then suggestions on how to better protect your data and privacy. All suggestins are optional, but if you want access to awsome swag, you need to complete 90% of the test. </p>
+    <section in:fly="{{delay: 150, duration: 800, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}">
+        <p id="headline">This test contains 8 unique privacy tests that will take no more than 30 minutes to complete. Each test will give you some background infomation and then suggestions on how to better protect your data and privacy. All suggestins are optional, but if you want access to awesome swag, you need to complete 90% of the test. </p>
         <div class:active="{current === 'webcam'}" on:click="{() => current = 'webcam'}" >
             <div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
                 <p>{$quizSteps[0].name}</p>
@@ -124,8 +123,9 @@
             <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Smart vacums, intelligents lights, internet connect theromstats, and voice assistants are part of everyday life, but also collect and sell a lot of personal data. Learn how to gain more privacy from these devices... </p>
             {/if}
         </div>
-       
-        <button id="start"><a rel=prefetch href='quizmain' >Start Challenge</a></button>
+       <div class="button-holder">
+        <a rel=prefetch href='quizmain' ><button id="start">Start Challenge</button></a>
+        </div>
     </section>
     <!--{:else} 
     <section id="chapter1">
@@ -134,7 +134,6 @@
         <button id="start"><a rel=prefetch href='quizmain' >Start Challenge</a></button>
     </section> -->
     {/if}
-</Trans>
     </main>
 
 <style>
@@ -143,6 +142,7 @@
               flex-flow: row;
               justify-content: center;
               margin-top: 15px;
+              background: #38424D;
        }
        section{
               background: #38424D;

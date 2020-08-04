@@ -30,7 +30,7 @@ afterUpdate(() =>{
     if(bg3){color = "#E94040"}
 })
 </script>
-<aside class:bg1 class:bg2 class:bg3 in:fly="{{delay: 150, duration: 800, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fade="{{delay: 100, duration: 800}}">
+<aside class:bg1 class:bg2 class:bg3>
     <section id="timer">
        <div>Time Remaining:</div> <div id='minutes' style='white-space:nowrap;'>{minutes}:{seconds}</div> 
        <div id='challenge-name'>
@@ -43,7 +43,7 @@ afterUpdate(() =>{
     <section class='done'>
         {#each $quizSteps as challenge}
             {#if challenge.type != 'checkpoint'}
-        <Check active={challenge.status} color={color}/> 
+        <svelte:component this={Check} active={challenge.status} color={color}/> 
             {/if}
         {/each}    
     </section>
@@ -82,7 +82,7 @@ afterUpdate(() =>{
         height: 60px;
         text-align: center;
         font-size: 24px;
-        margin: 8px 20px; 
+        margin: 12px 40px;
         display: grid;
         align-content: center;
         padding: 2px 30px; 
@@ -148,6 +148,7 @@ afterUpdate(() =>{
     #challenge-name {
         font-size: 40px;
         color: white;
+        margin: auto;
     }
     
 </style>

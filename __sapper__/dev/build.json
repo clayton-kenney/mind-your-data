@@ -2,10 +2,10 @@
   "bundler": "rollup",
   "shimport": "1.0.1",
   "assets": {
-    "main": "client.d57b672e.js"
+    "main": "client.1b809048.js"
   },
   "css": {
-    "main": "main.2420573487.css",
+    "main": "main.4252024387.css",
     "chunks": {
       "index.svelte": [],
       "index_old.svelte": [],
@@ -15,22 +15,7 @@
       "about.svelte": [],
       "blog/index.svelte": [],
       "blog/[slug].svelte": [],
-      "quiz/q1archive.svelte": [],
       "quiz/Progress.svelte": [],
-      "quiz/check1.svelte": [],
-      "quiz/check2.svelte": [],
-      "quiz/check3.svelte": [],
-      "quiz/q1dup.svelte": [],
-      "quiz/q0.svelte": [],
-      "quiz/q1.svelte": [],
-      "quiz/q2.svelte": [],
-      "quiz/q3.svelte": [],
-      "quiz/q4.svelte": [],
-      "quiz/q5.svelte": [],
-      "quiz/q6.svelte": [],
-      "quiz/q7.svelte": [],
-      "quiz/q8.svelte": [],
-      "quiz/q9.svelte": [],
       "quiz.svelte": []
     }
   }

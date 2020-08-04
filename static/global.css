@@ -1,3 +1,6 @@
+html{
+	background-color: #303538;
+}
 body {
 	margin: 0;
 	font-family: 'Anonymous Pro', monospace;
@@ -40,6 +43,7 @@ code {
 	border-radius: 2px;
 }
 .button-holder {
+	margin-top: 7.2vh;
 	width: 27vw;
 	display: flex;
     flex-flow: column nowrap;
@@ -50,6 +54,7 @@ button {
 	border: black solid 0px;
 	border-radius: 8px;
 	font-size: 18px;
+	width: 100%;
 }
 
 @media (min-width: 400px) {

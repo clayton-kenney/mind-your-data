@@ -11,7 +11,7 @@
     <div>
     {#if visible}
     <a prefetch href="quiz">
-    <img src="MYDlogo_large.png" alt="Mind your data logo, click to enter" in:fade="{{delay: 3000, duration: 9000, }}" out:blur="{{delay: 0, duration: 2000}}"></a>
+    <img src="MYDlogo_large.png" alt="Mind your data logo, click to enter" in:fade="{{delay: 3000, duration: 9000, }}" out:blur="{{delay: 0, duration: 1000}}"></a>
     {/if}
     </div>
 </div>

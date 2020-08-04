@@ -140,12 +140,6 @@
     margin: 5px;
 
    }
-   button {
-	   padding: 10px 20px;
-	   margin: 10px;
-	   border: black solid 0px;
-	   border-radius: 8px;
-   }
    .caret{
 		display: flex;
 		flex-flow: row nowrap;
@@ -171,9 +165,5 @@
         width: 100%;
         border-radius: 6px;
 
-    }
-    .button-holder{
-        align-items: center;
-        padding-bottom: 50px;
     }
 </style>

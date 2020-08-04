@@ -16,9 +16,6 @@
 </button>
 
 <style>
-    button{
-        margin-top: 7.2vh;
-    }
     .green {
         background-color: #73ef7b;
         color: #2C3C4E;
