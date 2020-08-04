@@ -31,7 +31,7 @@
 		</div>
 	{:else}
 			<h1>Use alternative search engine</h1>
-			<p>Protect your privacy while you search using an alternative search engine when you need to find something on the internet. This isn’t as hard asyou might think as there are some competitive alternatives now that don’t collect or share your personal information — we recommend DuckDuckGo as your default search, but if you’d like to search for other options <a href="https://restoreprivacy.com/private-search-engine/">check these out.</a> </p>
+			<p>Protect your privacy while you search using an alternative search engine when you need to find something on the internet. This isn’t as hard as you might think as there are some competitive alternatives now that don’t collect or share your personal information — we recommend DuckDuckGo as your default search, but if you’d like to search for other options <a href="https://restoreprivacy.com/private-search-engine/">check these out.</a> </p>
 				<p>Follow the link below for exact instruction on how to change your default search engine.</p>
 		<div class="button-holder">
 			{#if !disabled}

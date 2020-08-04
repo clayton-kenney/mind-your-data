@@ -20,7 +20,7 @@
     </section>
     {:else if part === 1}
     <section in:fly="{{delay: 150, duration: 800, x: 0, y: 1000, opacity: 0.0, easing: quintOut}}">
-        <p id="headline">This test contains 8 unique privacy tests that will take no more than 30 minutes to complete. Each test will give you some background infomation and then suggestions on how to better protect your data and privacy. All suggestins are optional, but if you want access to awesome swag, you need to complete 90% of the test. </p>
+        <p id="headline">This test contains 8 unique privacy tests that will take no more than 30 minutes to complete. Each test will give you some background information and then suggestions on how to better protect your data and privacy. All suggestions are optional, but if you want access to awesome swag, you need to complete 90% of the test. </p>
         <div class:active="{current === 'webcam'}" on:click="{() => current = 'webcam'}" >
             <div class="caret" transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">
                 <p>{$quizSteps[0].name}</p>
@@ -81,7 +81,7 @@
                 </svg>
             </div>
             {#if current === 'tracker'}
-            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Much of the surveillance of your internet browsing is done through cookies, by changing some simple setting you can better protect your data...</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Much of the surveillance of your internet browsing is done through cookies, by changing some simple settings you can better protect your data...</p>
             {/if}
         </div>
         <hr>
@@ -107,7 +107,7 @@
                 </svg>
             </div>
             {#if current === 'location'}
-            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Your phone tracks just about everywhere you go, and this data commonly sold. Learn how to disable location for a little more privacy...</p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Your phone tracks just about everywhere you go, and this data is commonly sold. Learn how to disable location for a little more privacy...</p>
             {/if}
         </div>
         <hr>
@@ -120,7 +120,7 @@
                 </svg>
             </div>
             {#if current === 'iot'}
-            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Smart vacums, intelligents lights, internet connect theromstats, and voice assistants are part of everyday life, but also collect and sell a lot of personal data. Learn how to gain more privacy from these devices... </p>
+            <p transition:slide="{{delay: 25, duration: 500, easing: quintOut }}">Smart vacuums, intelligents lights, internet connect theromstats, and voice assistants are part of everyday life, but also collect and sell a lot of personal data. Learn how to gain more privacy from these devices... </p>
             {/if}
         </div>
        <div class="button-holder">

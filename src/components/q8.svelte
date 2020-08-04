@@ -28,7 +28,7 @@
 </section>
 {:else if $step==1}
 <section>
-	<h2>Turn locaiton off on IOS device</h2>
+	<h2>Turn location off on IOS device</h2>
 	<p>Step 1. Go to Settings > Privacy > Location Services.</p>
 	<p>Step 2. Make sure that Location Services is on.</p>
 	<p>Step 3. Scroll down to find the app.</p>
@@ -47,7 +47,7 @@
 </section>
 {:else}
 <section>
-	<h2>Turn locaiton off on and Android Device</h2>
+	<h2>Turn location off on and Android Device</h2>
 	<p>Step 1. Go to Settings > Privacy > Location Services.</p>
 	<p>Step 2. Make sure that Location Services is on.</p>
 	<p>Step 3. Scroll down to find the app.</p>

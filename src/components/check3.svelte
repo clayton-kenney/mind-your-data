@@ -22,10 +22,11 @@
     <div class="button-holder">
 		<a rel=prefetch href="review"><Btn p={0}>See your results</Btn></a>
         <button >Sign a Petition</button>
-        <button >Contact your Rep</button>
+		<button >Contact your Rep</button>
+		<Back/>
 	</div>
 	</div>
-<Back/>
+
 </section>
 
 <style>

@@ -21,16 +21,17 @@
     <h3>Checkpoint 2:</h3>
         <h1>Surveillance Capitalism How did this happen?</h1>
 		<p><strong>Great!</strong>You are now on your way to claiming your privacy.</p>
-		<p>By now we hope you see how our private experiences are being harvested to be translated into behavioral data. This data is then processed and packaged as prediction products and sold to business customers with a commercial interest in knowing what we will do now, soon, and later. This is surveillance capitalism.</p>
+		<p>By now we hope you see how our private experiences are being harvested and turned into behavioral data. This data is then processed and packaged as prediction products and sold to business customers with a commercial interest in knowing what we will do now, soon, and later. This is surveillance capitalism.</p>
 		<p><strong>How did this happen?</strong></p>
 		<p>It wasn’t that long ago that the internet entered our daily lives. We went online expecting empowerment, the democratization of knowledge, and help with real problems, but surveillance capitalism really was just too lucrative to resist. Google was the first to learn how to capture surplus behavioral data and use it to compute prediction products that they could sell to advertisers.
 		</p>
 		<p>This economic logic has now spread beyond the tech companies to new surveillance–based ecosystems in virtually every sector, from insurance to automobiles to health, education, finance, to every product described as “smart” and every service described as “personalized.” By now it’s very difficult to participate in society without interfacing with these same channels that are supply chains for surveillance capitalism’s data flows.</p>
     <div class="button-holder">
 		<Complete>Start the next Challenge</Complete>
+		<Back/>
 	</div>
 	</div>
-	<Back/>
+
 	</section>
 
 <style>

@@ -13,15 +13,12 @@
 	let mac = false;
 	let pc = false;
 </script>
-<svelte:head>
-	<title>Domain Name Service</title>
-</svelte:head>
 <div in:fly="{{delay: 150, duration: 800, y: 1000, opacity: 0.0, easing: sineInOut}}" out:fade="{{delay: 100, duration: 800}}">
 {#if $step==0}
 <section>
 	<h2>Domain Name Server (DNS): Quad9
 	</h2> 
-	<p>Everything on the Internet, including websites, live at a numerical IP address. The Domain Name System, or DNS, translates these numerical IP addresses into human-readable domain names that we all know and remember (like mindyourdata.org). If your DNS settings are not working correctly, or you’re still using defaults, you may be at risk for cybercrime and performance issues. And, the websites you visit may be collected and shared by whatever entity owns the DNS service.</p>
+	<p>Everything on the Internet, including websites, live at a numerical IP address. The Domain Name System, or DNS, translates these numerical IP addresses into human-readable domain names that we all know and remember (like mindyourdata.wtf). If your DNS settings are not working correctly, or you’re still using defaults, you may be at risk for cybercrime and performance issues. And, the websites you visit may be collected and shared by whatever entity owns the DNS service.</p>
 	<div class="button-holder">
 		<Btn green={true}>Continue</Btn>
 	</div>
@@ -29,7 +26,7 @@
 {:else}
 <section>
 	<h2>Setup Quad9</h2>
-	<p>Quad9 is a free, not-for-profit security solution that uses the DNS to protect your system against the most common cyber threats. Not only does it  preserve and protect your privacy, it will also improve your system’s performance! It’s like a painless immunization for your computer and devices.</p>
+	<p>Quad9 is a free, not-for-profit security solution that uses the DNS to protect your system against the most common cyber threats. It not only protects and preserves your privacy, it also improves your system’s performance! It’s like a painless immunization for your computer and devices.</p>
 	<div class:mac on:click="{() => mac = !mac}">
 		<div class="caret">
 			<p>Setup Quad9 for Mac:</p>
