@@ -107,7 +107,7 @@ $: quizNumber = quizStep[$count].name;
        main {
               display: flex;
               flex-flow: row;
-              background: #38424D;
+              background: #303538;
 
        }
        #main-content{
