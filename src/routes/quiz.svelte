@@ -142,7 +142,7 @@
               flex-flow: row;
               justify-content: center;
               margin-top: 15px;
-              background: #38424D;
+              background: #303538;
        }
        section{
               background: #38424D;
