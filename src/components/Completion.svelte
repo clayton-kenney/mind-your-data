@@ -149,7 +149,7 @@ afterUpdate(() =>{
         font-size: 40px;
         color: white;
         margin: auto;
-        min-width: 100px;
+        min-width: 150px;
     }
     
 </style>

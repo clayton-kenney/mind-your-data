@@ -22,8 +22,8 @@ import { count } from '../store.js'
 
 const quizStep =  ([
     {component: Quiz1, name: 'WEBCAM', showSideBar: true},
-    {component:Quiz2, name: 'HTTPS' , showSideBar: true},
-    {component:Quiz6, name: 'DNS' , showSideBar: true},
+    {component:Quiz2, name: 'HTTPS', showSideBar: true},
+    {component:Quiz6, name: 'DNS', showSideBar: true},
     {component:Checkpoint1, name: 'Security vs Privacy', showSideBar: false},
     {component:Quiz3, name: 'SEARCH' , showSideBar: true},
     {component:Quiz4, name: 'PRIVACY SETTINGS' , showSideBar: true},
