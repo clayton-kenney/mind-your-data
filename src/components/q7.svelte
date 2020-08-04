@@ -6,6 +6,9 @@
 	import Btn from './Btn.svelte' //set <Next q={2}> to skip multiple steps
 	import { count, step, quizSteps } from '../store.js'
 	import Back from './Back.svelte'
+	import { quintOut, quintIn, sineInOut } from 'svelte/easing';
+	import { slide, blur, fade, fly } from 'svelte/transition';
+
 
 
 	//sets aside icon to in progress via store
@@ -75,8 +78,9 @@
 			<path d="M18.885 7L12 13.7989L5.115 7L3 9.09312L12 18L21 9.09312L18.885 7Z" fill="white"/>
 			</svg>
 		<p>Apple Siri</p>
-		{#if current==='apple'}
 	</div>
+		{#if current==='apple'}
+	
 		<ul>
 			<li>Step 1: Open the Alexa app on your smartphone and tap the menu button on the top-left of the screen.</li>
 			<li>Step 2: Select Settings > Alexa Privacy > Manage How Your Data Improves Alexa.</li>
