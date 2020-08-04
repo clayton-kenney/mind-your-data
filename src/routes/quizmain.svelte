@@ -12,7 +12,7 @@
  import Checkpoint2 from '../components/check2.svelte'
  import Checkpoint3 from '../components/check3.svelte'
  import Completion from '../components/Completion.svelte'
- import Complete from '../components/Complete.svelte'
+ import Complete from '../components/complete.svelte'
  import { createEventDispatcher, beforeUpdate, afterUpdate, onMount } from 'svelte';
 import { slide, fly, fade } from 'svelte/transition';
 import { quintOut, quintIn, sineInOut } from 'svelte/easing';
