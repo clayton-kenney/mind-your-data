@@ -18,7 +18,7 @@
 </Trans>
 <style>
     #logo-holder{
-    background-color: white;
+    background-color:#f5f4f4;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;

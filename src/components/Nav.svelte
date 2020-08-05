@@ -1,5 +1,5 @@
 <script>
-	export let segment;
+	export let segment = 'home'
 </script>
 
 
@@ -25,7 +25,7 @@
 		justify-content: flex-end;
 		margin: 0;
 		padding: 0;
-		color: #c7c7c7;
+		
 	}
 	img {
 		/*display: block;
@@ -51,7 +51,7 @@
 		content: '';
 		width: calc(100% - 1em);
 		height: 2px;
-		background-color:#e74e45;
+		background-color:#e83e40;
 		display: block;
 		/*bottom: -1px;*/
 	}
@@ -63,19 +63,32 @@
 
 	}
 	.home {
-		background-color: white;
+		background-color: #f5f4f4;
+		color: #303538;
+	}
+	.other {
+		color: #c7c7c7;
+	}
+	#hidden {
+		opacity: 0%;
 	}
 </style>
 
 <nav class:home={segment == 'home'}>
-	<a href='.'><img  src='./MYDlogo_nav.png' alt="Mind your Data logo"></a>
-	<ul id="navigation">
+	{#if segment === 'home'}
+	<a href='.'><img  src='./MYDlogo_nav.png' alt="Mind your Data logo" id="hidden"></a>
+	<ul >
 		<li><a aria-current="{segment === 'home' ? 'page' : undefined}" href=".">home</a></li>
 		<li><a aria-current="{segment === 'quiz' ? 'page' : undefined}" href="quiz">quiz</a></li>
 		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-	<!--	<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li> -->
 	</ul>
+	{:else}
+	<a href='.'><img  src='./MYDlogo_nav.png' alt="Mind your Data logo"></a>
+	<ul id="navigation">
+		<li><a aria-current="{segment === 'home' ? 'page' : undefined}" href="." class="other">home</a></li>
+		<li><a aria-current="{segment === 'quiz' ? 'page' : undefined}" href="quiz" class="other">quiz</a></li>
+		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about" class="other">about</a></li>
+	</ul>
+	{/if}
+	
 </nav>
