@@ -1,5 +1,5 @@
 # Mind Your Data
-![Mind your data logo](https://www.mindyourdata.wtf/MYDlogo_large.png "Mind Your Data Logo")
+
 Code repo for CMCI Studio project Mind Your Data.
 
 
@@ -11,3 +11,6 @@ Team: Clayton Kenney(Dev), Min Kim(UX/UI), Mark Grundberg(Content & Brand Design
 
 
 Check out the working site: www.mindyourdata.wtf
+
+
+![Mind your data logo](https://www.mindyourdata.wtf/MYDlogo_large.png "Mind Your Data Logo")
