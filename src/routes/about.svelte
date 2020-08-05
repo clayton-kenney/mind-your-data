@@ -32,7 +32,7 @@
 		Data is courageous, bold, and
 		inspirational.</p>
 
-		<h2>References</h2>
+		<h2>Sources</h2>
 		<p><a href="https://techcrunch.com/2018/04/14/how-to-save-your-privacy-from-the-internets-clutches/" rel=external>Tech Crunch - How to save your privacy from the Internet’s clutches</a></p>
 		<p><a href="https://shoshanazuboff.com/book/about/" rel=external>Shoshana Zuboff - The Age of Surveillance Capitalism</a></p>
 		<p><a href="https://fee.org/articles/have-consumers-already-lost-the-online-privacy-war/" rel=external>FEE - Have Consumers Already Lost the Online Privacy War?</a></p>
